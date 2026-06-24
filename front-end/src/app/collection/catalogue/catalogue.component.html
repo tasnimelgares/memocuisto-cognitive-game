@@ -1,0 +1,50 @@
+<div class="catalogue-container">
+    <app-content-card>
+        
+        <div class="content-area">
+            <div *ngIf="dataType === 'ingredient'" class="ingredient-grid">
+                <div *ngIf="currentPage === 1" class="add-placeholder-card" (click)="openCreateForm()">
+                    <span class="plus-icon">➕</span>
+                    <p>Ajouter un ingrédient</p>
+                </div>
+                <app-recipe-card *ngFor="let ing of paginatedData" [recipe]="ing" (click)="openDetail(ing)">
+                </app-recipe-card>
+            </div>
+            
+            <div *ngIf="dataType === 'recipe'" class="recipe-grid">
+                <div *ngIf="currentPage === 1" class="add-placeholder-card" (click)="openCreateForm()">
+                    <span class="plus-icon">➕</span>
+                    <p>Ajouter une recette</p>
+                </div>
+                <app-recipe-card *ngFor="let recipe of paginatedData" [recipe]="recipe" (click)="openDetail(recipe)">
+                </app-recipe-card>
+            </div>
+        </div>
+
+        <div class="pagination-controls" *ngIf="totalPages > 1">
+            <button 
+                (click)="pagePrecedente()" 
+                [disabled]="currentPage === 1"
+                class="btn-nav">
+                ◀ Précédent
+            </button>
+            
+            <span class="page-info">Page {{ currentPage }} sur {{ totalPages }}</span>
+            
+            <button 
+                (click)="pageSuivante()" 
+                [disabled]="currentPage === totalPages"
+                class="btn-nav">
+                Suivant ▶
+            </button>
+        </div>
+
+    </app-content-card>
+</div>
+<app-detail-card 
+        *ngIf="selectedItem" 
+        [item]="selectedItem" 
+        [type]="dataType" 
+        (close)="closeDetail()"
+        (deleteConfirm)="deleteElement($event)">
+</app-detail-card>

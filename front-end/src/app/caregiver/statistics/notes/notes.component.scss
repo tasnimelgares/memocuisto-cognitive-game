@@ -1,0 +1,84 @@
+/* Conteneur principal : met les deux colonnes côte à côte */
+.notes-container {
+  display: flex;
+  gap: 40px; 
+  align-items: flex-start;
+}
+
+/* Les deux colonnes prennent exactement la même largeur (50/50) */
+.colonne-saisie,
+.colonne-historique {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titres des sections */
+.ajout-titre {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+/* --- PARTIE SAISIE (GAUCHE) --- */
+textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.btn-enregistrer-note {
+  align-self: flex-end; /* Pousse le bouton tout à droite */
+  margin-top: 15px;
+  background-color: #27ae60; /* Vert par défaut */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+
+  /* Apparence quand il n'y a pas de texte */
+  &:disabled {
+    background-color: #bdc3c7; /* Gris */
+    cursor: not-allowed;
+  }
+}
+
+/* --- PARTIE HISTORIQUE (DROITE) --- */
+.historique-notes {
+  background-color: #f8f9fa; /* Fond gris très clair pour bien le démarquer */
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #ecf0f1;
+  
+  max-height: 180px; /* Hauteur max de la boîte */
+  overflow-y: auto;  /* Si ça dépasse, une barre de défilement apparaît automatiquement */
+}
+
+.note-item {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0; /* Petite ligne de séparation entre les notes */
+
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.note-date {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  font-weight: bold;
+}
+
+.note-texte {
+  margin: 5px 0 0 0;
+  color: #34495e;
+}
+

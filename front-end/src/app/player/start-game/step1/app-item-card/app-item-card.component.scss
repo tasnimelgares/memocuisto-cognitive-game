@@ -1,0 +1,38 @@
+/* :host permet à StoreSection de positionner app-item (avec top, left...) */
+:host {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hotspot-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: transparent; 
+  border: 4px solid transparent; 
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+
+
+/* VERT : Clic valide */
+.hotspot-overlay.selected {
+  border: 4px solid #28a745 !important; 
+  background-color: rgba(40, 167, 69, 0.2); 
+}
+
+/* POINTILLÉS : Aide activée */
+.hotspot-overlay.highlighted {
+  border: 4px dashed #ffc107 !important;
+  box-shadow: 0 0 15px #ffc107 !important;
+  animation: blink 1s infinite;
+}
+
+/* ROUGE : Erreur  */
+.hotspot-overlay.error {
+  border: 4px solid #e74c3c !important;
+  background-color: rgba(231, 76, 60, 0.2);
+}
+

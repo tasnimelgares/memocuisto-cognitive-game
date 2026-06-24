@@ -1,0 +1,14 @@
+<div class="config-container">
+    <button class="config-trigger" (click)="toggleConfig()" [class.button-active]="isConfigVisible">
+        <strong>Configurations actuelles</strong>
+    </button>
+
+    <div class="config-content" [class.show-content]="isConfigVisible">
+        <div class="info-group">
+            <span><strong>Difficulté choisie :</strong> {{currentDifficulty | titlecase}} </span>
+        </div>
+        <p class="helper-text">
+            Pour modifier les configurations, passez par le profil soignant puis choisissez <strong>Configurations</strong> dans le tableau de bord.
+        </p>
+    </div>
+</div>

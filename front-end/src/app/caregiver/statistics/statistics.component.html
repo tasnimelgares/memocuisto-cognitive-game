@@ -1,0 +1,215 @@
+<div class="global-page-wrapper">
+
+  <div class="nav-buttons-container">
+    <app-button text="" imgSrc="assets/img/acceuil.png" (action)="retourAccueil()" buttonColor="#95a5a6"></app-button>
+    <app-button text="Retour" redirectTo="/caregiver/dashboard" buttonColor="#95a5a6"></app-button>
+  </div>
+
+  <app-page-title [title]="'Statistiques & suivi de ' + patientActuel?.firstName"></app-page-title>
+
+  <main class="stats-scroll-area">
+
+    <section class="section-title">Sur les 10 dernières parties</section>
+
+    <div class="stats-grid">
+      <app-content-card>
+        <app-chart 
+          title="Évolution du score (%)" 
+          chartId="scoreChart" 
+          [allData]="dataHistorique" 
+          dataType="score">
+        </app-chart>
+      </app-content-card>
+
+      <app-content-card>
+        <app-chart 
+          title="Évolution du temps (min)" 
+          chartId="timeChart" 
+          [allData]="dataHistorique" 
+          dataType="temps" 
+          color="#3498db">
+        </app-chart>
+      </app-content-card>
+    </div>
+
+    <section class="section-title d-flex-align">
+      Détails de la partie du : 
+      
+      <select *ngIf="dataHistorique.length > 0" 
+              [(ngModel)]="indexSelectionne"
+              (ngModelChange)="changerPartie($event)" 
+              class="date-selector">
+        
+        <option *ngFor="let partie of dataHistorique; let i = index" [value]="i">
+          {{ partie.date }}
+        </option>
+        
+      </select>
+
+      <strong *ngIf="dataHistorique.length === 0" style="margin-left: 10px; color: #7f8c8d;">
+        Aucune partie enregistrée
+      </strong>
+    </section>
+
+    <div class="stats-grid">
+      <app-content-card class="full-width">
+        <app-game-config [config]="dernierePartie?.config"></app-game-config>
+        
+        <app-global-summary 
+          [score]="scoreGlobal" 
+          [temps]="tempsTotalFormate">
+        </app-global-summary>
+
+        <app-description>Détails par étape :</app-description>
+
+        <div class="steps-list">
+          <app-step-stats 
+            title="🛒 Liste de courses" 
+            [score]="scoreEtape1" 
+            [timeLimit]="dernierePartie?.config?.tempsEtape1 || 'illimite'"
+            [timeSpent]="dernierePartie?.etape1?.temps || 0"
+            [aides]="aidesEtape1">
+          </app-step-stats>
+
+          <app-step-stats 
+            title="🧺 Rangement cuisine" 
+            [score]="scoreEtape2" 
+            [timeLimit]="dernierePartie?.config?.tempsEtape2 || 'illimite'"
+            [timeSpent]="dernierePartie?.etape2?.temps || 0"
+            [aides]="aidesEtape2">
+          </app-step-stats>
+
+          <app-step-stats 
+            title="🍰 Recette" 
+            [score]="scoreEtape3" 
+            [timeLimit]="dernierePartie?.config?.tempsEtape3 || 'illimite'"
+            [timeSpent]="dernierePartie?.etape3?.temps || 0"
+            [aides]="aidesEtape3"
+            [recommencements]="dernierePartie?.etape3?.recommencements">
+          </app-step-stats>
+        </div>
+      </app-content-card>
+    </div>
+
+    <div class="stats-grid">
+      <app-indicator-card
+        title="Précision"
+        subtitle="Coordination des clics"
+        [value]="precisionValeur"
+        [label]="precisionLabel"
+        [color]="precisionCouleur"
+        recommendationText="Si la précision est faible, vous pouvez réduire la densité des rayons ou activer les aides dans les configurations pour aider à réduire les erreurs de sélection.">
+        
+        <p><strong>(étape de la liste de courses) Ce que nous mesurons :</strong> l'efficacité de la visée sur les éléments interactifs (boutons, ingrédients, rayons).</p>
+        
+        <div class="formula-box">
+          <strong>Formule :</strong><br>
+          Précision = (Clics valides ÷ Clics totaux) × 100<br>
+          Clics totaux = clics valides + clics hors cible
+        </div>
+        
+        <p>
+          🟢 80–100 % : coordination globalement stable<br>
+          🟡 50–80 % : erreurs régulières<br>
+          🔴 &lt; 50 % : nombreuses erreurs de sélection
+        </p>
+        
+        <p>
+          <strong>Interprétation :</strong><br>
+          Cet indicateur reflète la coordination œil-main et la capacité à cibler correctement.<br><br>
+          • <strong>Vert :</strong> gestes précis et contrôlés.<br>
+          • <strong>Jaune :</strong> erreurs occasionnelles (fatigue ou hésitation).<br>
+          • <strong>Rouge :</strong> difficulté motrice ou confusion dans la sélection.
+        </p>
+      </app-indicator-card>
+
+      <app-indicator-card
+        title="Aisance"
+        subtitle="Navigation dans le jeu (étape de rangement)"
+        [value]="aisanceValeur"
+        [label]="aisanceLabel"
+        [color]="aisanceCouleur"
+        recommendationText="Si l’indicateur est jaune ou rouge, vous pouvez activer puis adapter les temps de déclenchement des aides dans les configurations.">
+        
+        <p><strong>(étape de rangement) Ce que nous mesurons :</strong> la capacité à se déplacer efficacement dans l’environnement, sans détours inutiles (ratio entre le trajet direct et les détours inutiles).</p>
+        
+        <div class="formula-box">
+          <strong>Formule :</strong><br>
+          Aisance = (Distance idéale ÷ Distance réelle) × 100
+        </div>
+        
+        <p>
+          🟢 70–100 % : navigation globalement fluide<br>
+          🟡 40–70 % : hésitations ou détours fréquents<br>
+          🔴 &lt; 40 % : difficulté marquée à se repérer
+        </p>
+        
+        <p>
+          <strong>Interprétation :</strong><br>
+          Cet indicateur reflète l’orientation visuo-spatiale et la capacité à planifier un trajet.<br><br>
+          • <strong>Vert :</strong> Le patient trouve son chemin avec peu d’erreurs.<br>
+          • <strong>Jaune :</strong> Le patient hésite ou fait des détours.<br>
+          • <strong>Rouge :</strong> Le patient semble désorienté ou perdu dans l’espace.
+        </p>
+      </app-indicator-card>
+    </div>
+
+    <div class="stats-grid">
+      <app-indicator-card
+        title="Indice de Fatigue"
+        subtitle="Épuisement des ressources"
+        [value]="fatigueValeur"
+        [label]="fatigueLabel"
+        [color]="fatigueCouleur"
+        recommendationText="Si l’indice est élevé, raccourcissez les sessions, activez « Plus d’encouragements » et « Rappel d'inactivité ».">
+        
+        <p>Cet indice pondéré combine trois facteurs de dégradation entre le début et la fin de session :</p>
+        
+        <ul class="formula-list">
+          <li><strong>Chute de vitesse (45%) :</strong> Baisse du ratio "items trouvés par seconde".</li>
+          <li><strong>Désorganisation (35%) :</strong> Fréquence des recommencements lors de la recette finale.</li>
+          <li><strong>Lenteur temporelle (20%) :</strong> Allongement de la durée de l'étape 3 vs étape 1.</li>
+        </ul>
+        
+        <div class="formula-box">
+          <strong>Formule :</strong><br>
+          Fatigue = (0.45 x Vitesse) + (0.35 x Erreurs) + (0.20 x Temps)
+        </div>
+        
+        <p>
+          🟢 <strong>&lt; 30 % :</strong> Stable — Concentration maintenue.<br>
+          🟡 <strong>30–60 % :</strong> Fatigue modérée — Vigilance en baisse.<br>
+          🔴 <strong>&gt; 60 % :</strong> Fatigue importante — Risque de mise en échec.
+        </p>
+      </app-indicator-card>
+
+      <app-content-card>
+        <app-description>Aides utilisées lors de la dernière partie :</app-description>
+        <div class="conteneur-chips">
+        <span *ngIf="toutesLesAides.length === 0 && dernierePartie?.config?.helpEnabled">
+          Aucune aide utilisée ! 🎉
+        </span>
+        <span id="noHelpText" *ngIf="!dernierePartie?.config?.helpEnabled">
+          Aides désactivées
+        </span>
+        <app-aides-chips *ngIf="dernierePartie?.config?.helpEnabled" [aides]="toutesLesAides"></app-aides-chips>
+        
+      </div>
+
+        <app-details text="Comprendre les niveaux d'aide">
+          <app-aides-legend></app-aides-legend>
+        </app-details>
+
+        <app-recommendation text="Si de nombreuses aides sont utilisées, activez « Plus d’encouragements » et « Atténuer les retours d’échecs » afin de maintenir la motivation."></app-recommendation>
+      </app-content-card>
+    </div> 
+
+    <div class="stats-grid">
+      <app-content-card class="full-width">
+        <app-description>📝 Notes des aidants</app-description>
+        <app-notes></app-notes>
+      </app-content-card>
+    </div>
+
+  </main>
+</div>

@@ -1,0 +1,6 @@
+<div class="step-item">
+    <span class="step-text"><strong>{{step.order}}.</strong> {{ step.text }}</span>
+    <div class="step-img-container" *ngIf="step.imgPath">
+        <img [src]="step.imgPath" alt="Illustration de l'étape" class="step-img">
+    </div>
+</div>

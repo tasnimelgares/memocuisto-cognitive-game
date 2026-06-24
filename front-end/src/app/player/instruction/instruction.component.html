@@ -1,0 +1,6 @@
+<div class="instruction-box" [class.active]="isSpeaking">
+  <button class="instruction-btn" (click)="lireConsigne()" [class.speaking]="isSpeaking" title="Lire la consigne">
+    <span class="instruction-icon">🔉</span>
+  </button>
+  <p class="instruction-text">{{ text }}</p>
+</div>

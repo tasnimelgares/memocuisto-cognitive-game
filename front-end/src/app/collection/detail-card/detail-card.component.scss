@@ -1,0 +1,216 @@
+@use 'src/styles.scss' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* composant app-content-card */
+.recipe-card-container {
+    width: 90%;
+    max-width: 65vw;
+    animation: slideUp 0.3s ease-out;
+
+    ::ng-deep .card {
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        
+        &::-webkit-scrollbar { width: 20px; }
+        &::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+    }
+}
+
+.ingredient-card-container {
+    max-width: 65vw;
+    animation: slideUp 0.3s ease-out;
+
+    ::ng-deep .card {
+        max-height: 80vh;
+        overflow-y: auto;
+        position: relative;
+        padding: 40px;
+        
+        &::-webkit-scrollbar { width: 20px; }
+        &::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+    }
+}
+
+/* --- DISPOSITION INGREDIENT --- */
+.ingredient-card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 30vw;
+}
+
+/* --- DISPOSITION RECETTE --- */
+.recipe-card-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        align-items: flex-start;
+
+        .left-column {
+            flex: 1;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-column {
+            flex: 2;
+            border-left: 2px solid $barre_grise_clair;
+            padding-left: 30px;
+        }
+    }
+}
+
+/* Bouton fermer */
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: $bordure_gris_pale;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: $bleu_turquoise_defaut;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.2s;
+
+    &:hover {
+        background: $bleu_turquoise_defaut;
+        color: $bordure_gris_pale;
+        transform: rotate(90deg);
+    }
+}
+
+/* Bouton supprimer */
+.btn-delete {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: $rouge_reponse_fausse;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* --- ÉLÉMENTS VISUELS INTERNES --- */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .image-container {
+        width: 20vh;
+        height: 20vh;
+        margin: 0 auto 15px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    h2 { color: $police_bleu_fonce; font-size: 1.8rem; margin: 0; }
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.rayon-badge, .category-badge{
+    color: #373737;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Une mini bordure subtile pour détacher le badge */
+    font-weight: 700;
+}
+.info-section {
+    h3 {
+        color: $police_gris_clair;
+        font-size: 1.1rem;
+        border-bottom: 2px solid $bordure_gris_pale;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+    }
+}
+
+/* Liste des ingrédients mini */
+.ingredients-mini-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Étapes */
+.steps-grid {
+    padding-left: 0; 
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px; 
+
+    li {
+        // retire les puces/numéros standards du navigateur
+        list-style-type:none; 
+        
+        background-color: #f8fafc; 
+        padding: 15px;
+        border-radius: 14px;
+        border: 1px solid $bordure_gris_pale;
+
+        .step-item { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+        }
+
+        .step-img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+    }
+
+    // passage à 2 colonnes sur les écrans plus grands
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

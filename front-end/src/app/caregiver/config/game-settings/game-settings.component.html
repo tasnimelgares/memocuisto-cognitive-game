@@ -1,0 +1,13 @@
+<app-description>⚙️ Paramètres d'accompagnement </app-description>
+
+<div class="settings-grid">
+  <button 
+    *ngFor="let opt of optionsAccompagnement" 
+    class="btn-toggle" 
+    [class.active]="opt.active"
+    (click)="toggleOption(opt)">
+    <span class="icon">{{ opt.icon }}</span>
+    {{ opt.label }}
+  </button>
+</div>
+

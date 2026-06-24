@@ -1,0 +1,82 @@
+@use 'src/styles.scss' as *;
+
+.instruction-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 9px 18px; 
+  margin: 0;
+  width: max-content;
+  justify-self: center;
+  
+  /* Animation pour l'apparition */
+  animation: fadeInDown 0.5s ease-out;
+}
+
+/* Le bouton en petit cercle */
+.instruction-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; 
+  height: 60px; 
+  border-radius: 50%; 
+  border: 3px solid $bleu_turquoise_defaut;
+  background-color: white;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1); 
+    background-color: #f0fbfc;
+  }
+
+  &:active {
+    transform: scale(0.95); /* Effet d'enfoncement au clic */
+  }
+
+  /* Changement de couleur du cercle quand l'audio est en cours */
+  &.speaking {
+    background-color: $bleu_turquoise_defaut;
+    border-color: white;
+    
+    .instruction-icon {
+      filter: brightness(0) invert(1); /* Aligne l'icône si besoin ou change son contraste */
+    }
+  }
+}
+
+.instruction-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.instruction-text {
+  margin: 10px auto;
+  padding: 15px;
+  font-size: 1.2rem; 
+  font-weight: 600;   
+  color: #2c3e50;
+  border: 3px solid $bleu_turquoise_defaut;
+  background-color: white;
+  border-radius: 15px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+// pour la config agrandir les consignes
+:host-context(body.large-mode) {
+  .instruction-btn {
+    width: 75px;
+    height: 75px;
+
+    .instruction-icon {
+      font-size: 2.2rem;
+    }
+  }
+
+  .instruction-text {
+    padding: 18px 30px;
+    font-size: 1.6rem;
+  }
+}

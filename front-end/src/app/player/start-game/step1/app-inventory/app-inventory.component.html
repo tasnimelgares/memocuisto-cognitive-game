@@ -1,0 +1,37 @@
+ <div
+  class="shopping-note-trigger"
+  *ngIf="!inventoryStateService.isVisible"
+  (click)="toggleInventory()">
+  <img
+    src="assets/img/rayons/liste-courses.png"
+    alt="Liste de courses">
+</div>
+<div *ngIf="inventoryStateService.isVisible"
+     class="shopping-note-open"
+     (click)="toggleInventory()">
+  Cacher 
+</div>
+<app-content-card *ngIf="inventoryStateService.isVisible">
+  <div class="inventory-wrapper" [class.is-open]="inventoryStateService.isVisible">
+    <div class="inventory-container">
+      
+      <div class="recipe-reminder" *ngIf="isSolo">
+        <span class="reminder-text">Rappel :</span>
+        <div class="recipe-mini-card">
+          <img [src]="currentRecipe.imageUrl" class="mini-img">
+          <span class="mini-name">{{currentRecipe.name}}</span>
+        </div>
+      </div>
+
+      <h3 class="inventory-title">Votre liste :</h3>
+      
+      <div class="ingredients-list">
+        <div *ngFor="let item of ingredients" class="ingredient-line" [class.is-found]="item.selected">
+          <span class="check-icon">{{ item.selected ? '☑' : '▢' }}</span>
+          <span class="ingredient-name">{{ item.name }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</app-content-card>

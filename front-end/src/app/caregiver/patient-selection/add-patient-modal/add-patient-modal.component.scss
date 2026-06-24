@@ -1,0 +1,117 @@
+$primary: #289daa;
+$text-dark: #2c3e50;
+$border: #cbd5e1;
+
+.form-grid {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.left-col, .right-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+// LA BARRE VERTICALE
+.divider {
+  width: 1px;
+  background-color: #ecf0f1;
+  margin: 10px 0;
+  align-self: stretch;
+}
+
+// ALIGNEMENT DES TITRES / OPTIONS
+h3 {
+  margin: 0;
+  height: 40px; 
+  display: flex;
+  align-items: center;
+  color: $text-dark;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.accessibility-header {
+  height: 40px; 
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #f8fafc;
+  padding: 5px 15px;
+  border-radius: 10px;
+
+  .section-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: $text-dark;
+  }
+
+  .checkbox-container {
+    display: flex;
+    gap: 15px;
+
+    label {
+      flex-direction: row;
+      margin-bottom: 0;
+      font-size: 0.85rem;
+      gap: 5px;
+      cursor: pointer;
+      
+      input { margin: 0; }
+    }
+  }
+}
+
+// AJUSTEMENT DES INPUTS POUR NE PAS SCROLLER
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid $border;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+}
+
+.photo-section {
+  flex-grow: 1; 
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: auto; 
+
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+
+.preview {
+  text-align: center;
+  padding: 15px;
+  background: white;
+  border: 2px dashed #bdc3c7;
+  border-radius: 10px;
+  margin-bottom: 15px;
+
+  img { max-width: 100px; max-height: 100px; display: block; margin: 0 auto 10px auto; object-fit: contain; }
+  b { color: #2c3e50; font-size: 1.1rem; }
+}

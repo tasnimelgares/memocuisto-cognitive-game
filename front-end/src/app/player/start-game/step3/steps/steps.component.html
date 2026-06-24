@@ -1,0 +1,113 @@
+<div class="global-page-wrapper">
+
+    <app-sidebar>
+        <app-count-up-timer 
+            menu-timer
+            *ngIf="gameConfig"
+            [aideTimings]="gameConfig.timingsAides" 
+            (timeUpdated)="mettreAJourTemps($event)"
+            (aideTriggered)="gererAides($event)">
+        </app-count-up-timer>
+    </app-sidebar>
+    <div *ngIf="isEntering" class="entrance-overlay">
+      <div class="entrance-wrapper">
+        <div class="entrance-image-container">
+          <img src="assets/img/entree_cuisine.png" alt="En cuisine" class="entrance-img">
+        </div>
+        <div class="entrance-content">
+          <h2 class="entrance-title">C'est l'heure de cuisiner !</h2>
+        </div>
+      </div>
+    </div>
+      
+    <app-page-title title="Étape 3 : Confection de la recette"></app-page-title>
+    
+    <app-instruction 
+        [text]="'Veuillez sélectionner les étapes dans l\'ordre de la recette.'" 
+        phraseId="etapes">
+    </app-instruction>
+    <app-encouragement-text
+        *ngIf="feedbackMessage"
+        [text]="feedbackMessage"
+        [color]="feedbackColor"
+        [phraseId]="feedbackVoiceId">
+    </app-encouragement-text>
+
+    <div class="recipe-game-container" cdkDropListGroup>
+        
+        <div class="column">
+            <h3>Étapes mélangées</h3>
+            <div class="step-list-container"
+                 cdkDropList
+                 [cdkDropListData]="availableSteps"
+                 (cdkDropListDropped)="drop($event)">
+                
+                <div *ngFor="let step of availableSteps" 
+                     cdkDrag
+                     class="step-item" 
+                     [class.highlight]="step.highlighted"
+                     (click)="selectStep(step)">
+                    
+                    <img *ngIf="step.imgPath" [src]="step.imgPath" alt="Photo de l'étape" class="step-img">
+                    
+                    <span class="step-text">{{ step.text }}</span>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="column">
+            <h3>Votre recette dans l'ordre</h3>
+            <div class="step-list-container"
+                 cdkDropList
+                 [cdkDropListData]="playerRecipe"
+                 (cdkDropListDropped)="drop($event)">
+                
+                <div *ngFor="let step of playerRecipe" 
+                     cdkDrag
+                     [cdkDragDisabled]="step.id < 0"
+                     class="step-item"
+                     [class.empty-slot]="step.id < 0"
+                     (click)="step.id > 0 ? removeStep(step) : null">
+                     
+                    <span class="badge">{{ step.userOrder }}</span>
+                    
+                    <img *ngIf="step.imgPath && step.id > 0" [src]="step.imgPath" alt="Photo de l'étape" class="step-img">
+                    
+                    <span class="step-text" *ngIf="step.id > 0">{{ step.text }}</span>
+
+                    <span class="step-text placeholder-text" *ngIf="step.id < 0">
+                        <em>Placez l'étape n°{{ step.userOrder }} ici</em>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div class="buttons-container" *ngIf="!gameWon">
+        <app-button 
+            text="Recommencer" 
+            buttonColor="#6c757d" 
+            (action)="resetSteps()">
+        </app-button>
+
+        <app-button 
+            text="Vérifier votre recette" 
+            buttonColor="#28a745" 
+            (action)="checkRecipe()">
+        </app-button>
+    </div>
+
+    <div id="retour-container" *ngIf="gameWon">
+        <app-button 
+            text="Retourner à l'accueil ➔" 
+            buttonColor="#289daa" 
+            redirectTo="/">
+        </app-button>
+    </div>
+
+    <app-inactivity-popup></app-inactivity-popup>
+
+</div>

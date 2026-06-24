@@ -1,0 +1,34 @@
+<div class="notes-container">
+  
+  <div class="colonne-saisie">
+    <p class="ajout-titre"><strong>Ajouter une nouvelle observation :</strong></p>
+    <textarea 
+      [(ngModel)]="nouvelleNote" 
+      placeholder="Ex: Jean semblait fatigué aujourd'hui..."
+      (keydown.enter)="onEnter($event)">
+    </textarea>
+    
+    
+      <button 
+        class="btn-enregistrer-note" 
+        (click)="ajouterNote()" 
+        [disabled]="!nouvelleNote.trim()">
+        Enregistrer la note
+      </button>
+    
+  </div>
+
+  <div class="colonne-historique">
+    <p class="ajout-titre"><strong>Historique des notes :</strong></p>
+    
+    <div class="historique-notes">
+      <div class="note-item" *ngFor="let note of listeNotes">
+        <span class="note-date">{{ note.date }}</span>
+        <p class="note-texte">{{ note.texte }}</p>
+      </div>
+      
+      
+    </div>
+  </div>
+
+</div>

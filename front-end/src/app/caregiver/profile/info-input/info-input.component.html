@@ -1,0 +1,8 @@
+<div class="info-group">
+  <label>{{ label }}</label>
+  <input 
+    [type]="type" 
+    [ngModel]="value" 
+    (ngModelChange)="onValueChange($event)" 
+    class="custom-input">
+</div>

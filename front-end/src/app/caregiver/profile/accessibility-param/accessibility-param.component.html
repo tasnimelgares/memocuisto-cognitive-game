@@ -1,0 +1,9 @@
+<div class="accessibility-item" (click)="toggleCheck()">
+  <div class="check-box" [class.active]="checked">
+    <span *ngIf="checked">✓</span>
+  </div>
+  <div class="texts">
+    <span class="title">{{ label }}</span>
+    <span class="desc">{{ description }}</span>
+  </div>
+</div>

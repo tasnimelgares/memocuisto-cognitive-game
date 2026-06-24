@@ -1,0 +1,35 @@
+[
+  {
+    "plusEncouragements": false,
+    "isLargeMode": false,
+    "modeMalvoyant": false,
+    "enleverTexteEchec": false,
+    "popupInactivite": false,
+    "difficulte": "tout",
+    "maxIngredientsParRayon": 100,
+    "budgetActif": false,
+    "budgetMax": 20,
+    "tempsEtape1": "illimite",
+    "tempsEtape2": "illimite",
+    "tempsEtape3": "illimite",
+    "helpEnabled": false,
+    "timingsAides": [
+      25,
+      45,
+      55,
+      75
+    ],
+    "typeVoix": "feminine",
+    "audios": {},
+    "roleplayActif": false,
+    "personnaliseActif": false,
+    "theme": {
+      "name": "Couleur par défaut",
+      "hex": "",
+      "isDefault": true,
+      "isDark": false
+    },
+    "patientId": 1781602064608,
+    "id": 1781602064638
+  }
+]

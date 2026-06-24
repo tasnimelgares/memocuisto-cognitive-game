@@ -1,0 +1,13 @@
+<div class="config-general-badges" *ngIf="config">
+  <span class="badge-config">🎚️ Niveau : {{ config.difficulte | titlecase }}</span>
+  <span class="badge-config">📦 Densité des rayons : {{ config.maxIngredientsParRayon }}%</span>
+  
+  <span class="badge-config" *ngIf="config.timingsAides && config.timingsAides.length > 0">
+    ⏱️ Aides déclenchées à :
+    {{ config.timingsAides[0] }}s,
+    {{ config.timingsAides[1] }}s,
+    {{ config.timingsAides[2] }}s,
+    {{ config.timingsAides[3] }}s
+  </span>
+</div>
+

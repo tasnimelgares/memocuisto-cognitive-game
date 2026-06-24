@@ -1,0 +1,46 @@
+<app-button class="return-btn" text="Retour" (click)="retourPrecedent()"></app-button>
+<div class="page-content">
+<app-page-title title="Catalogue"></app-page-title>
+    <div class="detail-container">        
+        <div class="search-bar-container">
+            <input 
+                type="text" 
+                [(ngModel)]="searchQuery" 
+                placeholder="Rechercher par nom..." 
+                class="global-search-input"
+            />
+            <button type="button" *ngIf="searchQuery" class="clear-btn" (click)="searchQuery = ''">×</button>
+        </div>
+        <div class="toggle-container">
+            <span [ngClass]="showRecipe ? 'recipe-actif' : 'mode-inactif'">Recettes</span>
+            <label class="switch">
+                <input type="checkbox" (change)="toggleDataType()">
+                <span class="slider round"></span>
+            </label>
+            <span [ngClass]="!showRecipe ? 'ingredient-actif' : 'mode-inactif'">Ingrédients</span>
+        </div>
+    </div>
+
+    <app-catalogue *ngIf="!showRecipe" dataType='ingredient' [filterTerm]="searchQuery" (createRequested)="handleCreation($event)"></app-catalogue>
+    <app-catalogue *ngIf="showRecipe" dataType='recipe' [filterTerm]="searchQuery" (createRequested)="handleCreation($event)"></app-catalogue>
+
+    <div class="modal-overlay"
+        *ngIf="showAddRecipeForm || showAddIngredientForm">
+        <div (click)="$event.stopPropagation()" class="form">
+            <app-recipe-form
+                *ngIf="showAddRecipeForm"
+                [patientId]="currentPatientId"
+                [closeButton]="true"
+                (modalClosed)="closeForm()">
+            </app-recipe-form>
+            <app-ingredient-form
+                *ngIf="showAddIngredientForm"
+                [patientId]="currentPatientId"
+                [closeButton]="true"
+                (modalClosed)="closeForm()">
+            </app-ingredient-form>
+        </div>
+    </div>
+
+
+</div>

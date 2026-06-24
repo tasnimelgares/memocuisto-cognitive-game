@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Page de choix du niveau">
+    <title>Choix du niveau - MémoCuisto</title>
+
+    <link rel="stylesheet" href="styleLevels.css">
+    <link rel="stylesheet" href="global.css">
+
+    <script type="module" src="components/recipecard/recipe-card.js" defer></script>
+    <script type="module" src="components/recipemodal/recipe-modal.js" defer></script>
+    <script type="module" src="components/ingredientitem/ingredient-item.js" defer></script>
+    <script type="module" src="components/homepagereturnbutton/homepage-return-button.js" defer></script>
+
+    <script src="scriptLevels.js" defer></script>
+    <script src="theme.js" defer></script>
+</head>
+<body>
+    <main>
+    <h1>Que souhaitez-vous préparer aujourd'hui ?</h1>
+
+    <div class="bulle-cuisto">
+        <div class="filters-container">
+            <div class="filter-group">
+                <p>Nombre d'ingrédients :</p>
+                <label><input type="radio" name="difficulty" value="3">3</label>
+                <label><input type="radio" name="difficulty" value="4">4</label>
+                <label><input type="radio" name="difficulty" value="5">5</label>
+            </div>
+
+            <div class="filter-group">
+                <p>Catégorie :</p>  
+                <label><input type="radio" name="category" value="Boisson">Boisson</label>
+                <label><input type="radio" name="category" value="Plat">Plat</label>
+                <label><input type="radio" name="category" value="Dessert">Dessert</label>
+            </div>
+
+            <button id="reset-filters" type="button">Réinitialiser les filtres</button>
+        </div>
+    </div>
+
+    <div class="bulle-cuisto">
+        <div class="image-grid">
+            <recipe-card src="images/burger.png" category="Plat" difficulty="5" alt="burger"></recipe-card>
+            <recipe-card src="images/coffee.png" category="Boisson" difficulty="3" alt="café"></recipe-card>
+            <recipe-card src="images/gateauchoco.png" category="Dessert" difficulty="3" alt="gâteauAuChocolat"></recipe-card>
+            <recipe-card src="images/lemonade.png" category="Boisson" difficulty="4" alt="limonade"></recipe-card>
+            <recipe-card src="images/pancakes.png" category="Dessert" difficulty="4" alt="pancakes"></recipe-card>
+            <recipe-card src="images/pates.png" category="Plat" difficulty="5" alt="pâtes"></recipe-card>
+        </div>
+    </div>
+
+    <recipe-modal id="recipe-modal">
+        <ingredient-item slot="ingredients" src="./images/oeufs.png" label="Oeufs"></ingredient-item>
+        <ingredient-item slot="ingredients" src="./images/farine.png" label="Farine"></ingredient-item>
+        <ingredient-item slot="ingredients" src="./images/chocolat.png" label="Chocolat"></ingredient-item>
+    </recipe-modal>
+
+    <homepage-return-button></homepage-return-button>
+
+    </main>
+
+    <footer>
+        <p>2026 MémoCuisto - Projet de stimulation cognitive</p>
+    </footer>
+</body>
+</html>

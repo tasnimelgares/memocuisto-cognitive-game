@@ -1,0 +1,39 @@
+<div class="steps-container">
+  <div class="input-group">
+    <div class="step-number">#{{ steps.length + 1 }}</div>
+    <input 
+      type="text" 
+      [(ngModel)]="currentStepText" 
+      [placeholder]="steps.length >= MAX_STEPS ? 'Limite de 20 étapes atteinte' : 'Veuillez ajouter une étape...'"
+      (keyup.enter)="addStep()"
+      class="step-input"
+      [disabled]="steps.length >= MAX_STEPS" 
+    >
+    <button 
+      class="add-btn" 
+      (click)="addStep()" 
+      [disabled]="!currentStepText || steps.length >= MAX_STEPS">
+      Ajouter
+    </button>
+  </div>
+  
+  <small *ngIf="formControl.invalid && formControl.touched && steps.length === 0" class="error-msg">
+    Veuillez ajouter au moins une étape.
+  </small>
+
+  <small *ngIf="steps.length >= MAX_STEPS" class="warning-msg" style="color: orange;">
+    Vous avez atteint la limite maximum de {{ MAX_STEPS }} étapes.
+  </small>
+
+  <div class="steps-list">
+    <div class="step-item" *ngFor="let step of steps; let i = index">
+      <div class="order-badge">{{ step.order }}</div>
+      
+      <div class="step-content">
+        <p>{{ step.text }}</p>
+      </div>
+
+      <button class="delete-btn" (click)="removeStep(i)">×</button>
+    </div>
+  </div>
+</div>

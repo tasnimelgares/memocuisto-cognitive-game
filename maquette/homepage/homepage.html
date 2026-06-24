@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MémoCuisto</title>
+
+    <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="stylesheet" href="../global.css">
+    <script src="homepage.js" defer></script>
+    <script src="../theme.js" defer></script>
+    <script type="module" src="../components/homepagereturnbutton/homepage-return-button.js"></script>
+</head>
+<body>
+
+    <!--ACCUEIL -->
+    <div class="page" id="home">
+
+        <img src="../images/fond.png" class="home-background" alt="Fond MémoCuisto">
+
+        <div class="header">
+            <div class="aidant-container">
+                <img src="../images/perfil.png" class="aidant-image" alt="Profil">
+                <button id="aidant-btn" class="aidant-btn">
+                    Profil Soignant(e)
+                </button>
+            </div>
+        </div>
+
+        <div class="home-box">
+            <button id="jouer-btn" class="main-btn">
+                Jouer !
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- PROFILS -->
+    <div class="page hidden" id="profils">
+        <h2>Sélectionne ton profil</h2>
+
+        <!-- Choix du mode -->
+    <div class="mode-selection">
+        <p>Mode de jeu :</p>
+        <button id="btn-solo" class="mode-btn active">Seul 👤</button>
+        <button id="btn-duo" class="mode-btn">À deux 👥</button>
+    </div>
+
+        <div class="profiles">
+            <div class="profile"><img src="../images/1.png" alt="Profil 1"></div>
+            <div class="profile"><img src="../images/2.png" alt="Profil 2"></div>
+            <div class="profile"><img src="../images/3.png" alt="Profil 3"></div>
+            <div class="profile" id="jean-profile"><img src="../images/jean_dumand.png" alt="Jean Dumand"></div>
+
+            <div class="profile empty"></div>
+            <div class="profile empty"></div>
+            <div class="profile empty"></div>
+            <div class="profile empty"></div>
+
+            <div class="profile empty"></div>
+            <div class="profile empty"></div>
+            <div class="profile empty"></div>
+            <div class="profile empty"></div>
+        </div>
+
+        <button id="retour-profils" class="main-btn small">
+            Retour
+        </button>
+    </div>
+
+
+
+<!--AIDANT -->
+    <div class="page hidden" id="aidant">
+        
+        <div class="bulle-cuisto">
+            <div class="aidant-panel">
+                <input type="text" placeholder="Rechercher un patient">
+                
+                <details class="patients-menu">
+                    <summary>Choisir un patient</summary>
+                    <div class="patients">
+                        <button class="patient-btn">Jean Dumand 👨🏻‍🍳</button>
+                        <button class="patient-btn">Caroline Martin</button>
+                        <button class="patient-btn">Paul Durand</button>
+                        <button class="patient-btn">Marie Lefèvre</button>
+                        <button class="patient-btn">Luc Bernard</button>
+                        <button class="patient-btn">Sophie Petit</button>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+
+
+        <div class="actions">
+            <homepage-return-button lien="../homepage/homepage.html"></homepage-return-button>
+            <button id="aidant-next" class="main-btn small">suivant</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>2026 MémoCuisto - Projet de stimulation cognitive</p>
+    </footer>
+
+    </body>
+</html>

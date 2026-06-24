@@ -1,0 +1,954 @@
+[
+  {
+    "id": 11,
+    "name": "Salade",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 12,
+    "name": "Tomate",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 21,
+    "name": "Carottes",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 20,
+    "name": "Pommes de terre",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 22,
+    "name": "Courgettes",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 23,
+    "name": "Aubergines",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 24,
+    "name": "Poivrons",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 8,
+    "name": "Citron",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 27,
+    "name": "Oranges",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 28,
+    "name": "Mandarines",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 29,
+    "name": "Pamplemousse",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 30,
+    "name": "Pommes",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 31,
+    "name": "Bananes",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 32,
+    "name": "Poires",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 33,
+    "name": "Pêches",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 34,
+    "name": "Fraises",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 35,
+    "name": "Framboises",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 36,
+    "name": "Ananas",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 37,
+    "name": "Kiwi",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 17,
+    "name": "Oignons",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 18,
+    "name": "Ail",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 19,
+    "name": "Échalotes",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 26,
+    "name": "Gingembre",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 25,
+    "name": "Piment",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 2,
+    "name": "Œufs",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 4,
+    "name": "Lait",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 15,
+    "name": "Gruyère",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 111,
+    "name": "Cheddar",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 46,
+    "name": "Beurre",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 47,
+    "name": "Crème",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 48,
+    "name": "Yaourt",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 49,
+    "name": "Mozzarella",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 50,
+    "name": "Parmesan",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 51,
+    "name": "Mascarpone",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 79,
+    "name": "Pâte à pizza",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 80,
+    "name": "Pâte feuilletée",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 40,
+    "name": "Poulet",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 41,
+    "name": "Bœuf",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 42,
+    "name": "Agneau",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 43,
+    "name": "Poisson",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 44,
+    "name": "Crevette",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 45,
+    "name": "Saumon",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 88,
+    "name": "Bacon",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 89,
+    "name": "Calamar",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 90,
+    "name": "Cuisses de poulet",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 91,
+    "name": "Dorade fraîche",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 92,
+    "name": "Escalopes",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 93,
+    "name": "Jambon",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 94,
+    "name": "Merguez",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 95,
+    "name": "Moules fraîches",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 96,
+    "name": "Salami",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 97,
+    "name": "Saucisses",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 98,
+    "name": "Thon frais",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 69,
+    "name": "Baguette",
+    "selected": false,
+    "rayon": "boulangerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 70,
+    "name": "Pain de mie",
+    "selected": false,
+    "rayon": "boulangerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 9,
+    "name": "Pain à burger",
+    "selected": false,
+    "rayon": "boulangerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 85,
+    "name": "Boule",
+    "selected": false,
+    "rayon": "boulangerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 86,
+    "name": "Brioche",
+    "selected": false,
+    "rayon": "boulangerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 87,
+    "name": "Pain céréales",
+    "selected": false,
+    "rayon": "boulangerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 55,
+    "name": "Sel",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 58,
+    "name": "Poivre",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 59,
+    "name": "Cannelle",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 60,
+    "name": "Herbes de Provence",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 99,
+    "name": "Badiane",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 100,
+    "name": "Clou de girofle",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 101,
+    "name": "Piment",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 102,
+    "name": "Curcuma",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 103,
+    "name": "Laurier",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 104,
+    "name": "Paprika",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 105,
+    "name": "Cardamome",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 106,
+    "name": "Romarin",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 107,
+    "name": "Safran",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 6,
+    "name": "Café",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 1,
+    "name": "Farine",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 3,
+    "name": "Sucre",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 54,
+    "name": "Sucre glace",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 16,
+    "name": "Levure",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 66,
+    "name": "Cacao en poudre",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 5,
+    "name": "Chocolat",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 67,
+    "name": "Amandes",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 68,
+    "name": "Noix",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 74,
+    "name": "Miel",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 13,
+    "name": "Pâtes",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 52,
+    "name": "Riz",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 53,
+    "name": "Semoule",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 56,
+    "name": "Lentilles",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 65,
+    "name": "Pois chiches",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 57,
+    "name": "Huile d'olive",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 61,
+    "name": "Moutarde",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 62,
+    "name": "Mayonnaise",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 63,
+    "name": "Ketchup",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 14,
+    "name": "Sauce tomate",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 75,
+    "name": "Olives",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 76,
+    "name": "Herbes fraîches",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 64,
+    "name": "Thon en conserve",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 7,
+    "name": "Eau gazeuse",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 71,
+    "name": "Eau",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 72,
+    "name": "Jus d'orange",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 73,
+    "name": "Thé citron",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 81,
+    "name": "Thé menthe",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 82,
+    "name": "Thé noir",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 83,
+    "name": "Thé pêche",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 84,
+    "name": "Jus multi fruits",
+    "selected": false,
+    "rayon": "boissons",
+    "zoneStockage": "frais-sec"
+  },
+  {
+    "id": 10,
+    "name": "Viande hachée",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  },
+  {
+    "id": 108,
+    "name": "Légumes surgelés",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  },
+  {
+    "id": 109,
+    "name": "Glaces",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  },
+  {
+    "id": 77,
+    "name": "Frites",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  },
+  {
+    "id": 78,
+    "name": "Nuggets",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  },
+  {
+    "id": 110,
+    "name": "Glacons",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  },
+  {
+    "id": 113,
+    "name": "Viande hachée",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 114,
+    "name": "Champignons",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 115,
+    "name": "Brocoli",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 116,
+    "name": "Epinards",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 117,
+    "name": "Concombre",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 118,
+    "name": "Radis",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 119,
+    "name": "Petits pois",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 120,
+    "name": "Haricots verts",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 121,
+    "name": "Avocat",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 122,
+    "name": "Patate douce",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 123,
+    "name": "Betterave",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 124,
+    "name": "Ricotta",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 125,
+    "name": "Feta",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 126,
+    "name": "Tofu",
+    "selected": false,
+    "rayon": "frais",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 127,
+    "name": "Dinde",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 128,
+    "name": "Lardons",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 129,
+    "name": "Truite",
+    "selected": false,
+    "rayon": "boucherie-poissonnerie",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 130,
+    "name": "Origan",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 131,
+    "name": "Basilic",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 132,
+    "name": "Curry",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 133,
+    "name": "Thym",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 134,
+    "name": "Cumin",
+    "selected": false,
+    "rayon": "epices",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 135,
+    "name": "Cornichons",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 136,
+    "name": "Vinaigre balsamique",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 137,
+    "name": "Menthe",
+    "selected": false,
+    "rayon": "fruit-legume",
+    "zoneStockage": "frais"
+  },
+  {
+    "id": 138,
+    "name": "Couscous",
+    "selected": false,
+    "rayon": "epicerie",
+    "zoneStockage": "sec"
+  },
+  {
+    "id": 139,
+    "name": "Fruits rouges surgelés",
+    "selected": false,
+    "rayon": "surgele",
+    "zoneStockage": "surgele"
+  }
+]

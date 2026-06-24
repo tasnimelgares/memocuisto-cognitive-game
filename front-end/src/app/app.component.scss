@@ -1,0 +1,20 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Prend la hauteur de app-root */
+}
+
+.page-content {
+  flex: 1; /* Pousse le footer vers le bas */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+}
+
+
+/* On cible le composant qui s'affiche (celui qui suit le router-outlet) */
+.page-content > :not(router-outlet) {
+  flex: 1;              
+  display: flex;         /* Deviens une flexbox */
+  flex-direction: column; /* Organise les enfants de haut en bas */
+}

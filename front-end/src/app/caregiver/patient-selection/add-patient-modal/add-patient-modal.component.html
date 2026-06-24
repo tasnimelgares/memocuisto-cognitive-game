@@ -1,0 +1,43 @@
+<app-content-card>
+  <div class="form-grid">
+    
+    <div class="left-col">
+      <h3>➕ Nouveau patient</h3>
+      
+      <div class="inputs-group">
+        <label>*Prénom : <input type="text" [(ngModel)]="patientFirstName" placeholder="Prénom..."></label>
+        <label>*Nom : <input type="text" [(ngModel)]="patientLastName" placeholder="Nom..."></label>
+        <label>Surnom (Optionnel) : <input type="text" [(ngModel)]="patientNickname" placeholder="Surnom..."></label>
+        <label>Âge (Optionnel) : <input type="text" [(ngModel)]="patientAge" placeholder="Âge..."></label>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="right-col">
+      <div class="accessibility-header">
+        <p class="section-title">Accessibilité :</p>
+        <div class="checkbox-container">
+          <label><input type="checkbox" [(ngModel)]="isVisuallyImpaired"> 👁️ Malvoyant</label>
+          <label><input type="checkbox" [(ngModel)]="isHearingImpaired"> 👂 Malentendant</label>
+        </div>
+      </div>
+
+      <div class="photo-section">
+        <label>Photo (PNG) : <input #fileInput type="file" (change)="onFileSelected($event)"></label>
+        <div *ngIf="imagePreview" class="preview">
+          <img [src]="imagePreview" alt="Aperçu">
+          <b>{{patientFirstName}} {{patientLastName}}</b>
+        </div>
+      </div>
+
+
+      <p *ngIf="feedbackMessage" class="feedback" [style.color]="isError ? '#e74c3c' : '#27ae60'">
+        <b>{{ feedbackMessage }}</b>
+      </p>
+      <button (click)="enregistrerPatient()">✔ Enregistrer</button>
+    
+    </div>
+
+  </div>
+</app-content-card>

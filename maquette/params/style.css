@@ -1,0 +1,350 @@
+
+/* -------STYLE GÉNÉRAL-----------*/
+
+body{
+background:var(--main-bg);
+margin:0;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+min-height:100vh;
+}
+
+#menu{
+text-align:center;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+margin:auto;
+}
+h1{
+color:#2c3e50;
+margin-bottom:30px;
+}
+
+.button-group{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:15px;
+}
+
+
+
+
+/*------STRUCTURE COMMUNE DES POPUPS-------*/
+
+#popupStats, #popupConfig, #popupModifierInfo {
+    display: none;
+    position: fixed;
+    top: 0;          
+    left: 0;         
+    width: 100%;
+    height: 100%;
+    background: var(--main-bg);
+    padding: 20px;
+    text-align: center;
+    /* si c trop long on peut scroll* : */
+    overflow-y: auto; 
+    box-sizing: border-box;
+    z-index:1000;
+}
+h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #ffffff; /*ligne sous le titre*/
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Bouton Retour spécial popup */
+.btnFermer {
+    margin-top: 20px;
+    width: auto;
+}
+
+
+/*------POPUP STATISTIQUES------*/
+
+.info-niveau {
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+/* Jauges simplifiées */
+.jauge {
+    width: 100%;
+    background: #eee;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.remplissage {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.vert { background-color: #2ecc71; }
+.jaune { background-color: #f1c40f; }
+
+.info-detail li {
+    display: flex;      
+    align-items: flex-start; 
+    gap: 10px;          
+    margin-bottom: 8px;  
+    list-style: none; 
+    line-height: 1.4;  
+    
+}
+
+.jauge-container{
+width:100%;
+margin-top:10px;
+}
+
+.valeur-jauge{
+font-weight:bold;
+margin-top:5px;
+}
+
+.echelle{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#555;
+margin-top:4px;
+}
+
+.zones{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+margin-top:4px;
+}
+
+.zone-rouge{color:#e74c3c;}
+.zone-jaune{color:#f1c40f;}
+.zone-vert{color:#2ecc71;}
+
+
+/* ---Style des petits éléments dans les bulles ---*/
+.item-jeu {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-weight: 500;
+}
+
+
+.conteneur-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.chip {
+    display: inline-block;
+    flex-shrink: 0;     
+    text-align: center;
+    padding: 4px 12px;    /* Un peu plus compact */
+    border-radius: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    border: 1px solid rgba(0,0,0,0.1);
+    min-width: 90px;     /* Largeur fixe pour aligner le texte à côté */
+}
+
+/* Couleurs des bulles d'aide */
+.chip.simple { background-color: #fff9c4; border-color: #fdd835; } 
+.chip.moyenne { background-color: #ffe0b2; border-color: #fb8c00; } 
+.chip.forte { background-color: #ffcdd2; border-color: #e53935; }   
+.chip.reponse { background-color: #e1bee7; border-color: #8e24aa; } 
+
+
+/* -----SYSTÈME DE RECOMMANDATION-----*/
+
+.aide-reco {
+    cursor: help;
+    margin-left: 8px;
+}
+
+.reco-trigger {
+    color: #2c3e50;
+    cursor: help;
+    border-bottom: 1px dashed #3498db;
+    position: relative;
+    display: inline-block;
+}
+/* Texte caché par défaut */
+.reco-content {
+    display: none; 
+    color: #2980b9;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.reco-trigger:hover .reco-content,
+.reco-trigger:hover + .reco-content {
+    display: inline;
+    animation: fadeIn 0.3s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* -------NOTES DES AIDANTS (Bulles dynamiques)--------*/
+
+/* Style de la zone de texte*/
+textarea {
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+}
+#btnEnregistrerNote {
+    background-color: #2c3e50;
+    color: white;
+    width: auto;
+    margin-top: 10px;
+    padding: 8px 15px; /* hauteur, largeur*/
+}
+#listeNotes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.note-bulle {
+    background-color: #fcfcfc;
+    border-left: 5px solid #2c3e50; /* Couleur sombre pour le sérieux du suivi */
+    padding: 12px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.date-note {
+    font-weight: bold;
+    color: #7f8c8d;
+    text-transform: uppercase;
+}
+
+.btn-suppr-note {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #e74c3c; /* Rouge pour la suppression */
+    font-weight: bold;
+    cursor: pointer;
+    width: auto;
+    box-shadow: none;
+    padding: 0;
+}
+
+.btn-suppr-note:hover {
+    transform: scale(1.2);
+    color: #c0392b;
+}
+
+
+/*----------POPUP CONFIGURATION (Profil & Thèmes)-----------------*/
+
+/* Paramètres d'accompagnement */
+.button-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-toggle {
+    width: 100% ;
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+    padding: 12px;
+    text-align: left;
+}
+.btn-toggle.active {
+    background-color: #d4edda !important;
+    border-color: #27ae60 !important;
+    color: #155724 !important;
+}
+
+.btn-profil {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+}
+
+
+/*-----Palette de couleurs-----*/
+summary {
+    cursor: pointer;
+    font-weight: 700;
+    padding: 10px;
+    outline: none;
+}
+summary:hover {
+    color: #6e45d6; 
+}
+.palette-couleurs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+.color-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.color-circle:hover {
+    transform: scale(1.1);
+    border-color: #020202;
+}
+
+/* ----------formulaire profil--------*/
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+.form-container label {
+    font-weight: 700;
+    margin-top: 10px;
+    color: #2c3e50;
+}
+.form-container input, .form-container select {
+    padding: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+#btnSauvegarderProfil {
+    background-color: #2c3e50;
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+

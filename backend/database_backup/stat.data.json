@@ -1,0 +1,322 @@
+[
+  {
+    "date": "16 juin",
+    "isSoloMode": true,
+    "config": {
+      "plusEncouragements": false,
+      "isLargeMode": false,
+      "modeMalvoyant": false,
+      "enleverTexteEchec": false,
+      "popupInactivite": false,
+      "difficulte": "tout",
+      "maxIngredientsParRayon": 100,
+      "budgetActif": false,
+      "budgetMax": 20,
+      "tempsEtape1": "illimite",
+      "tempsEtape2": "illimite",
+      "tempsEtape3": "illimite",
+      "helpEnabled": false,
+      "timingsAides": [
+        25,
+        45,
+        55,
+        75
+      ],
+      "typeVoix": "feminine",
+      "audios": {},
+      "roleplayActif": false,
+      "personnaliseActif": false,
+      "theme": {
+        "name": "Couleur par défaut",
+        "hex": "",
+        "isDefault": true,
+        "isDark": false
+      },
+      "patientId": 1781602064608,
+      "id": 1781602064638
+    },
+    "global": {
+      "tempsTotal": 83
+    },
+    "etape1": {
+      "temps": 33,
+      "ingredientsBons": 2,
+      "ingredientsTotal": 2,
+      "aides": [],
+      "clicsValides": 3,
+      "clicsHorsCible": 0
+    },
+    "etape2": {
+      "temps": 14,
+      "objetsBienRanges": 2,
+      "objetsTotal": 2,
+      "aisance": 100,
+      "aisanceMin": 100,
+      "aisanceMax": 100,
+      "detailsAisanceParObjet": [
+        {
+          "objetId": "1781602487632",
+          "distanceReelle": 43.84062043356594,
+          "distanceOptimale": 227.72790781983662,
+          "ratio": 1
+        },
+        {
+          "objetId": "1781602487623",
+          "distanceReelle": 32.5269119345812,
+          "distanceOptimale": 193.91235133430774,
+          "ratio": 1
+        }
+      ],
+      "aides": []
+    },
+    "etape3": {
+      "temps": 36,
+      "etapesBienOrdonnees": 2,
+      "etapesTotal": 2,
+      "recommencements": 0,
+      "aides": []
+    },
+    "patientId": 1781602064608,
+    "id": 1781602927358
+  },
+  {
+    "date": "16 juin",
+    "isSoloMode": true,
+    "config": {
+      "plusEncouragements": false,
+      "isLargeMode": false,
+      "modeMalvoyant": false,
+      "enleverTexteEchec": false,
+      "popupInactivite": false,
+      "difficulte": "tout",
+      "maxIngredientsParRayon": 100,
+      "budgetActif": false,
+      "budgetMax": 20,
+      "tempsEtape1": "illimite",
+      "tempsEtape2": "illimite",
+      "tempsEtape3": "illimite",
+      "helpEnabled": false,
+      "timingsAides": [
+        25,
+        45,
+        55,
+        75
+      ],
+      "typeVoix": "feminine",
+      "audios": {},
+      "roleplayActif": false,
+      "personnaliseActif": false,
+      "theme": {
+        "name": "Couleur par défaut",
+        "hex": "",
+        "isDefault": true,
+        "isDark": false
+      },
+      "patientId": 1781602064608,
+      "id": 1781602064638
+    },
+    "global": {
+      "tempsTotal": 51
+    },
+    "etape1": {
+      "temps": 30,
+      "ingredientsBons": 2,
+      "ingredientsTotal": 2,
+      "aides": [],
+      "clicsValides": 3,
+      "clicsHorsCible": 1
+    },
+    "etape2": {
+      "temps": 14,
+      "objetsBienRanges": 2,
+      "objetsTotal": 2,
+      "aisance": 100,
+      "aisanceMin": 100,
+      "aisanceMax": 100,
+      "detailsAisanceParObjet": [
+        {
+          "objetId": "1781602487623",
+          "distanceReelle": 26.870057685088817,
+          "distanceOptimale": 228.08989455914087,
+          "ratio": 1
+        },
+        {
+          "objetId": "1781602487632",
+          "distanceReelle": 26.870057685088817,
+          "distanceOptimale": 248.2438317461282,
+          "ratio": 1
+        }
+      ],
+      "aides": []
+    },
+    "etape3": {
+      "temps": 7,
+      "etapesBienOrdonnees": 2,
+      "etapesTotal": 2,
+      "recommencements": 0,
+      "aides": []
+    },
+    "patientId": 1781602064608,
+    "id": 1781603790586
+  },
+  {
+    "date": "16 juin",
+    "isSoloMode": true,
+    "config": {
+      "plusEncouragements": false,
+      "isLargeMode": false,
+      "modeMalvoyant": false,
+      "enleverTexteEchec": false,
+      "popupInactivite": false,
+      "difficulte": "tout",
+      "maxIngredientsParRayon": 100,
+      "budgetActif": false,
+      "budgetMax": 20,
+      "tempsEtape1": "illimite",
+      "tempsEtape2": "illimite",
+      "tempsEtape3": "illimite",
+      "helpEnabled": false,
+      "timingsAides": [
+        25,
+        45,
+        55,
+        75
+      ],
+      "typeVoix": "feminine",
+      "audios": {},
+      "roleplayActif": false,
+      "personnaliseActif": false,
+      "theme": {
+        "name": "Couleur par défaut",
+        "hex": "",
+        "isDefault": true,
+        "isDark": false
+      },
+      "patientId": 1781602064608,
+      "id": 1781602064638
+    },
+    "global": {
+      "tempsTotal": 30
+    },
+    "etape1": {
+      "temps": 8,
+      "ingredientsBons": 2,
+      "ingredientsTotal": 2,
+      "aides": [],
+      "clicsValides": 3,
+      "clicsHorsCible": 0
+    },
+    "etape2": {
+      "temps": 15,
+      "objetsBienRanges": 2,
+      "objetsTotal": 2,
+      "aisance": 100,
+      "aisanceMin": 100,
+      "aisanceMax": 100,
+      "detailsAisanceParObjet": [
+        {
+          "objetId": "1781602487623",
+          "distanceReelle": 26.870057685088817,
+          "distanceOptimale": 228.08989455914087,
+          "ratio": 1
+        },
+        {
+          "objetId": "1781602487632",
+          "distanceReelle": 26.870057685088817,
+          "distanceOptimale": 248.2438317461282,
+          "ratio": 1
+        }
+      ],
+      "aides": []
+    },
+    "etape3": {
+      "temps": 7,
+      "etapesBienOrdonnees": 2,
+      "etapesTotal": 2,
+      "recommencements": 0,
+      "aides": []
+    },
+    "patientId": 1781602064608,
+    "id": 1781603883461
+  },
+  {
+    "date": "16 juin",
+    "isSoloMode": true,
+    "config": {
+      "plusEncouragements": false,
+      "isLargeMode": false,
+      "modeMalvoyant": false,
+      "enleverTexteEchec": false,
+      "popupInactivite": false,
+      "difficulte": "tout",
+      "maxIngredientsParRayon": 100,
+      "budgetActif": false,
+      "budgetMax": 20,
+      "tempsEtape1": "illimite",
+      "tempsEtape2": "illimite",
+      "tempsEtape3": "illimite",
+      "helpEnabled": false,
+      "timingsAides": [
+        25,
+        45,
+        55,
+        75
+      ],
+      "typeVoix": "feminine",
+      "audios": {},
+      "roleplayActif": false,
+      "personnaliseActif": false,
+      "theme": {
+        "name": "Couleur par défaut",
+        "hex": "",
+        "isDefault": true,
+        "isDark": false
+      },
+      "patientId": 1781602064608,
+      "id": 1781602064638
+    },
+    "global": {
+      "tempsTotal": 30
+    },
+    "etape1": {
+      "temps": 8,
+      "ingredientsBons": 2,
+      "ingredientsTotal": 2,
+      "aides": [],
+      "clicsValides": 3,
+      "clicsHorsCible": 0
+    },
+    "etape2": {
+      "temps": 15,
+      "objetsBienRanges": 2,
+      "objetsTotal": 2,
+      "aisance": 100,
+      "aisanceMin": 100,
+      "aisanceMax": 100,
+      "detailsAisanceParObjet": [
+        {
+          "objetId": "1781602487623",
+          "distanceReelle": 26.870057685088817,
+          "distanceOptimale": 228.08989455914087,
+          "ratio": 1
+        },
+        {
+          "objetId": "1781602487632",
+          "distanceReelle": 26.870057685088817,
+          "distanceOptimale": 248.2438317461282,
+          "ratio": 1
+        }
+      ],
+      "aides": []
+    },
+    "etape3": {
+      "temps": 7,
+      "etapesBienOrdonnees": 2,
+      "etapesTotal": 2,
+      "recommencements": 0,
+      "aides": []
+    },
+    "patientId": 1781602064608,
+    "id": 1781610235071
+  }
+]

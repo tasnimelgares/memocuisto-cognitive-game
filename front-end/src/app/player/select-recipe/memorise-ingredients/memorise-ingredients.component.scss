@@ -1,0 +1,39 @@
+/* Grille des ingrédients */
+.ingredients-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.action-container {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+
+    color: #1e293b;
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+
+    padding: 16px 20px;
+
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+    font-family: "Poppins", "Segoe UI", Roboto, sans-serif;
+}
+
+.recipe-text strong {
+    color: #1a3a99c3;
+    font-size: 1.7rem;
+}

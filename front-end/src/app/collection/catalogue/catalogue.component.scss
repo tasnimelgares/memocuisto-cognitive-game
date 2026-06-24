@@ -1,0 +1,151 @@
+/* --- CONTENEUR PRINCIPAL --- */
+.catalogue-container {
+    // Responsive : 95% sur mobile/tablette, 70% sur grand écran 
+    width: 95vw;
+    height: 85vh;
+    max-width: 1200px;
+    max-height: 800px;
+    margin: 2vh auto;
+
+    ::ng-deep app-content-card {
+        .card {
+            padding: 10px;
+            gap: 0px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        width: 80vw;
+        height: 70vh;
+    }
+}
+
+/* --- ZONE DE CONTENU (Grilles) --- */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.recipe-grid, .ingredient-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0px;
+    width: 100%;
+    padding: 0px;
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    app-recipe-card {
+        transform: scale(0.9)
+    }
+}
+
+/* --- INGREDIENTS */
+app-ingredient-card {
+
+    transition: transform 0.2s ease; 
+    cursor: pointer; 
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* --- CONTROLES DE PAGINATION --- */
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    margin-top: 10px;
+    border-top: 2px solid #f0f4f8;
+
+    .btn-nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        font-size: 1.25rem;
+        font-weight: 600;
+        border-radius: 14px;
+        border: none;
+        
+        background-color: var(--couleur-defaut);
+        color: white;
+        cursor: pointer;
+        
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px #17a3b846;
+
+        &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px #17a3b846;
+            filter: brightness(1.1);
+        }
+
+        &:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        &:disabled {
+            background-color: #e2e8f0;
+            color: #94a3b8;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+    }
+
+    // indicateur de page au centre
+    .page-info {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #2c3e50;
+        background-color: var(--main-bg); 
+        padding: 8px 24px;
+        border-radius: 20px;
+    }
+}
+
+/* --- FAUSSE CARTE DE CRÉATION EN POINTILLÉS --- */
+.add-placeholder-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    // Garde les mêmes proportions que vos app-recipe-card grâce au scale identique
+    transform: scale(0.9);
+    background-color: #ffffff;
+    border: 4px dashed #bdc3c7;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    .plus-icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    p {
+        margin: 0;
+        font-weight: bold;
+        color: #7f8c8d;
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        border-color: #17a2b8;
+        background-color: #f7f9fa;
+        transform: scale(0.95); // Légère animation au survol
+
+        p { color: #17a2b8; }
+    }
+}

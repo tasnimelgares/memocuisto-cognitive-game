@@ -1,0 +1,14 @@
+<div class="victory-overlay">
+    <div class="victory-modal">
+      <div class="victory-icon">🎉</div>
+      <h2>{{ title }}</h2>
+      <p>{{ message }}</p>
+      
+      <app-button 
+          [text]="buttonText" 
+          (click)="onContinue()" 
+          class="btn-continue"
+          [isLarge]="true">
+      </app-button>
+    </div>
+  </div>

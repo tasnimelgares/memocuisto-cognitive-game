@@ -1,0 +1,13 @@
+<ul class="step-list">
+    <li *ngFor="let step of steps" 
+        class="step-item" 
+        [class.highlighted]="step.highlighted"
+        [class.selected]="showBadge"
+        (click)="onStepClick(step)">
+        
+        <span class="badge" *ngIf="showBadge">{{ step.userOrder }}</span> 
+        
+        <img [src]="step.imgPath" [alt]="step.text" class="step-image">
+        <span class="step-text">{{ step.text }}</span>
+    </li>
+</ul>

@@ -1,0 +1,14 @@
+<app-content-card *ngIf="recipe">
+     <p class="recipe-text">
+        {{ text }} <strong *ngIf="isSolo">{{ recipe.name }}</strong>
+        </p>
+    <div class="ingredients-list">
+        <app-ingredient-card 
+            *ngFor="let ing of ingredients" 
+            [ingredient]="ing">
+        </app-ingredient-card>
+    </div>
+    <div class="action-container">
+        <app-button text="J'ai mémorisé, c'est parti !" redirectTo="/map" [isLarge]="true"></app-button>
+    </div>
+</app-content-card>

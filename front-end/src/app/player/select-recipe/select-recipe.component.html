@@ -1,0 +1,16 @@
+<div class=select-recipe-page>
+    <app-button text="Retour" redirectTo="/homepage"></app-button>
+    <app-page-title title="Que souhaitez-vous préparer aujourd'hui ?"></app-page-title>
+    <app-config-info></app-config-info>
+    <div class="memorize-container" *ngIf="showMemorize">
+        <app-memorise-ingredients text="Mémorisez les ingrédients pour la recette :"></app-memorise-ingredients>
+        <app-button text="Retour" (click)="goBack()"></app-button>
+    </div>
+    <div class="recipes-display">
+        <app-recipe-modal category="boisson" (selected)="onRecipeClick($event)"></app-recipe-modal>
+        <app-recipe-modal category="plat" (selected)="onRecipeClick($event)"></app-recipe-modal>
+        <app-recipe-modal category="dessert" (selected)="onRecipeClick($event)"> </app-recipe-modal>
+    </div>
+</div>
+
+

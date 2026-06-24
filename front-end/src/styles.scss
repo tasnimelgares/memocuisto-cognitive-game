@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+$barre_grise_clair: #eee;
+$police_bleu_fonce: #2c3e50;
+$police_gris_clair: #7f8c8d;
+$input_border_gris_clair:#bdc3c7;
+$bordure_gris_pale:#e2e8f0;
+$bleu_turquoise_defaut:#17a2b8;
+$vert_reponse_correcte:#28a745;
+$rouge_reponse_fausse:#dc3545;
+$police_texte:'Montserrat',sans-serif;
+$taille_texte_defaut:1rem;
+
+:root {
+  /* la couleur par défaut */
+  /* le composant "Config" modifie cette variable */
+  --main-bg: linear-gradient(135deg, rgba(159, 208, 216, 0.98), rgba(255, 255, 255, 0.95));
+
+  /* Couleurs d'encouragement ici */
+  --couleur-succes: #28a745;
+  --couleur-erreur: #dc3545;
+  --couleur-aide: #ffc107;
+  --couleur-info: #007bff;
+  --couleur-defaut:#17a2b8;
+}
+
+html, body, app-root {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+app-root {
+  display: block; 
+}
+
+body {
+  background: var(--main-bg);
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif; /* meme police partout */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');

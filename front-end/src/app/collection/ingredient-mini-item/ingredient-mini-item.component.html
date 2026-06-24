@@ -1,0 +1,6 @@
+<div class="ingredient-mini-item">
+    <div class="mini-img-container" *ngIf="ingredient.imageUrl">
+        <img [src]="ingredient.imageUrl" [alt]="ingredient.name">
+    </div>
+    <span class="mini-ing-name">{{ ingredient.name }}</span>
+</div>

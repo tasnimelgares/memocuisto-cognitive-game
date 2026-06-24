@@ -1,0 +1,50 @@
+@use 'src/styles.scss' as *;
+
+.recipe-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;          
+    box-sizing: border-box;
+
+    background-color: white; 
+    border-radius: 12px;
+    overflow: hidden;
+
+    cursor: pointer; 
+        transition: transform 0.2s ease; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+
+    span {
+        font-family: $police_texte;
+        text-align: center;
+        font-weight: bold;
+        color: $police_gris_clair;
+        display: inline-block;
+        padding: 5px;
+        border: 2px solid var(--main-bg);
+    }
+    
+    img {
+        width: 180px; 
+        aspect-ratio: 1 / 1; 
+        
+        display: flex;          
+        align-self: center;    
+        justify-self: center; 
+    }
+    
+}
+
+.recipe-image {
+    max-width: 100%;
+    max-height: 100%;
+    /* L'image est réduite pour tenir entièrement dans le cadre */
+    object-fit: contain; 
+    display: block;
+}
+.recipe-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}

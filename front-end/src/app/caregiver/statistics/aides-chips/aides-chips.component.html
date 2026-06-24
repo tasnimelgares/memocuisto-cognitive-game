@@ -1,0 +1,8 @@
+<div class="conteneur-chips">
+
+  <span *ngFor="let aide of aides"
+        class="chip-"
+        [ngClass]="getClasseAide(aide)">
+    {{ aide }}
+  </span>
+</div>

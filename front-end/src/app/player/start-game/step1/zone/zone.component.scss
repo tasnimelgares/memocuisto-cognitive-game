@@ -1,0 +1,93 @@
+.rayon-wrapper {
+  position: relative;
+  min-width: 180px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  overflow: visible;
+  transition: z-index 0.3s ease;
+}
+
+.rayon-name {
+  color: rgb(0, 0, 0);
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  text-shadow: 0 2px 4px rgba(247, 242, 242, 0.8);
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.rayon-image-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 100;
+  /* --- FORME OVALE --- */
+  width: 240px;  /* Plus large que haut */
+  height: 160px; /* Hauteur réduite */
+  border-radius: 50%; /* Transforme le rectangle en ovale parfait */
+  
+  padding: 0;
+  background-color: #ffffff; /* Fond plein pour éviter la transparence */
+  overflow: hidden; /* Coupe strictement tout ce qui dépasse de l'ovale */
+  
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.4), 
+    0 0 0 6px rgba(255, 255, 255, 0.9);
+    
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rayon-image {
+  /* Force l'image à prendre tout l'espace de l'ovale parent */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Zoom et coupe l'image sans la déformer pour remplir l'ovale */
+  object-fit: cover; 
+  
+  display: block;
+}
+
+.rayon-wrapper:hover {
+  z-index: 1000;
+}
+
+.rayon-wrapper:hover .rayon-name {
+  opacity: 0;
+}
+
+.rayon-wrapper:hover .rayon-image-container {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(2.2);
+}
+
+.rayon-wrapper.highlight .rayon-name{
+  background-color: #f7e099;
+  color: #000;
+  border: 3px dashed #ffc107;
+  box-shadow: 0 0 20px 5px rgba(255, 193, 7, 0.8);
+}
+//illumine le contour de la loupe (l'ovale)  aussi
+.rayon-wrapper.highlight .rayon-image-container {
+  box-shadow: 
+    0 15px 30px rgba(246, 240, 240, 0.4), 
+    0 0 0 6px #f3e853,          
+    0 0 25px 10px rgba(255, 193, 7, 0.7); 
+}

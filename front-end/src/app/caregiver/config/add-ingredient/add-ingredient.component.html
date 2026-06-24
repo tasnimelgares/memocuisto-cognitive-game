@@ -1,0 +1,45 @@
+<div class="settings-block">
+  <h3>➕ Veuillez ajouter un ingrédient personnalisé</h3>
+  <p class="subtitle">Importez une image PNG pour l'ajouter aux rayons.</p>
+
+  <div class="form-group">
+    <label>Nom de l'ingrédient :</label>
+    <input type="text" [(ngModel)]="ingredientName" placeholder="Ex: Brocoli">
+  </div>
+
+  <div class="form-group">
+    <label>Rayon de destination :</label>
+    <select [(ngModel)]="selectedRayon">
+      <option *ngFor="let rayon of rayons" [value]="rayon.id">
+        {{ rayon.label }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Rangement de destination :</label>
+    <select [(ngModel)]="selectedRangement">
+      <option value="placard">Placard</option>
+      <option value="frigo">Frigo</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Image (PNG) :</label>
+    <input type="file" accept="image/png, image/jpeg" (change)="onFileSelected($event)">
+  </div>
+
+  <div class="preview-area" *ngIf="imagePreview">
+    <p>Aperçu dans le rayon :</p>
+    <div class="product-card-preview">
+      <img [src]="imagePreview" [alt]="ingredientName">
+      <p>{{ ingredientName || 'Nom...' }}</p>
+    </div>
+  </div>
+
+  <button class="btn-add" (click)="ajouterIngredient()">Ajoutez à la base de données</button>
+
+  <p class="feedback" *ngIf="feedbackMessage" [ngClass]="{'error': isError}">
+    {{ feedbackMessage }}
+  </p>
+</div>

@@ -1,0 +1,45 @@
+<app-button text="⬅ Retour" redirectTo="/homepage" class="fixed-top-left"></app-button>
+<app-page-title title="Bienvenue à l'aidant ! Préparez votre partie."></app-page-title>
+<app-instruction 
+  text="Dans ce mode de jeu vous allez devoir choisir une recette et la faire deviner à votre proche ! Ne le laissez pas regarder cette étape...">
+</app-instruction>
+
+<main class="grid-container">
+
+  <app-content-card>
+    <h3>Commencez par choisir votre recette </h3>
+    <p>Voulez-vous choisir une recette existante ou en créer une personnalisée ?</p>
+    
+    <div class="buttons-group">
+      <app-button 
+        text="🍲 Je souhaite choisir une recette existante"
+        [buttonColor]="showExistingRecipeList || !alreadyclicked ? '#17a2b8' : '#85dbe9'"
+        (click)="toggleAlreadyExist()">
+      </app-button>
+      <app-button
+        text="👨‍🍳 Je souhaite créer une recette 100% personnalisée"
+        [buttonColor]="showAddRecipeForm || !alreadyclicked? '#17a2b8' : '#85dbe9'"
+        (click)="togglePersonnalise()">
+      </app-button>
+    </div>
+
+    <app-description>🎨 Thème visuel</app-description>
+    <app-details text="Veuillez choisir une couleur de fond pour l'écran...">
+        <app-color-palette></app-color-palette>
+    </app-details>
+  </app-content-card>
+
+  <app-recipe-form *ngIf="showAddRecipeForm" class="card-animation" [patientId]="currentPatientId" (recipeSaved)="onRecipeSuccess($event)"></app-recipe-form>
+  <app-ingredient-form *ngIf="showAddRecipeForm" class="card-animation" [patientId]="currentPatientId"></app-ingredient-form>
+
+
+  <app-recipe-modal *ngIf="showExistingRecipeList" (selected)="onRecipeClick($event)" class="card-animation"></app-recipe-modal>
+  <div class="memorize-container" *ngIf="showMemoriseIngredient" >
+    <app-memorise-ingredients  text="Passez maintenant la main au patient afin qu'il mémorise les ingrédients et retrouve la recette :">
+
+      </app-memorise-ingredients>
+      <app-button text="Retour" (click)="closePopUpRecipe()"></app-button>
+  </div>
+  
+  
+</main>

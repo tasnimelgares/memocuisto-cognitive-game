@@ -1,0 +1,64 @@
+<app-content-card class="container">
+
+    <form [formGroup]="recipeForm" class="form">
+        <div class="header">
+            <h4>Créer votre propre recette 👨‍🍳</h4>
+            <button type="button" *ngIf="closeButton" class="btn-close" (click)="onClose()">✖</button>
+        </div>
+
+        <app-form-field 
+            #nameField
+            label="Nom de la recette :" 
+            placeholder="Ex: Le fameux gâteau au yaourt"
+            [control]="recipeForm.get('name')"
+            errorMsg="Un nom de recette est requis."
+            (keydown.enter)="passerALImage($event)">
+        </app-form-field>
+
+        <label>Image PNG : 
+            <input #recipeFileInput type="file" (change)="onFileRecipeSelected($event)" accept="image/png">
+        </label>
+
+        <div *ngIf="imageRecipePreview" class="preview">
+            <img [src]="imageRecipePreview" [alt]="recipeForm.get('name')?.value">
+            <b>{{ recipeForm.get('name')?.value || 'Nom...' }}</b>
+            <div *ngIf="isTouchedOrDirty(recipeForm.get('image')) && recipeForm.get('image')?.hasError('required')" >
+                <small>Ce champ est obligatoire. L'image de la recette est requise.</small>
+            </div>
+        </div>
+
+        <app-form-field 
+            #categoryField
+            label="Catégorie :" 
+            [control]="recipeForm.get('categoryId')"
+            defaultOption="Choisissez une catégorie"
+            [options]="categories"
+            valueKey="id"
+            labelKey="label"
+            errorMsg="Veuillez choisir une catégorie."
+            (change)="passerAuxIngredients($event)">
+        </app-form-field>
+
+        <label>Ingrédients :
+            <app-select-ingredient 
+                #ingredientsField
+                [control]="recipeForm.get('ingredients')">
+            </app-select-ingredient>
+        </label>
+
+        <label>Étapes :
+            <app-select-steps [control]="recipeForm.get('steps')" #stepsField></app-select-steps>
+        </label>
+
+        <p *ngIf="feedbackMessageRecipe" [style.color]="isErrorRecipe ? '#e74c3c' : '#27ae60'">
+            <b>{{ feedbackMessageRecipe }}</b>
+        </p>
+
+        <app-button 
+            text="Sauvegarder la recette" 
+            buttonColor="#17a2b8" 
+            [attr.disabled]="recipeForm.invalid ? true : null"
+            (action)="onSubmit()">
+        </app-button>
+    </form>
+</app-content-card>

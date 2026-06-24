@@ -1,0 +1,92 @@
+/* Le sélecteur :host cible la balise <recipe-modal> elle-même */
+:host {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--main-bg);
+}
+
+.modal-content {
+    background: var(--main-bg);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    border: 1px solid #999;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.modal-title {
+    margin-bottom: 40px;
+    color: #000;
+}
+
+/* Grille des ingrédients */
+.ingredients-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+/* Style des boutons internes */
+.modal-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button {
+    font-family: inherit; 
+    font-weight: 700;
+    background-color: #236374;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 22px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+#step-ready{
+    display: none;
+}
+
+/* Étape du Timer / Ready */
+
+.timer-text {
+    display: inline-block;
+    background-color: #236374;
+    border: 1px solid #333;
+    padding: 10px 60px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: white;
+}
+
+.ready-box {
+    background-color: #236374;
+    padding: 60px 20px;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.ready-box h2 {
+    margin: 0;
+    color: white;
+}

@@ -1,0 +1,47 @@
+.gauge-wrapper {
+  width: 100%;
+  margin: 15px 0; /* Un peu d'espace autour */
+}
+
+/* La barre grise en fond */
+.gauge-bar {
+  width: 100%;
+  height: 20px; 
+  background-color: #ecf0f1; 
+  border-radius: 10px; 
+  overflow: hidden; 
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+/* La partie colorée qui se remplit */
+.fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease-in-out; /* Effet d'animation au chargement */
+
+  &.green { background-color: #2ecc71; }
+  &.yellow { background-color: #f1c40f; }
+  &.red { background-color: #e74c3c; }
+}
+
+/* Les textes en dessous (Valeur et Label) */
+.gauge-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding: 0 5px;
+
+  .valeur {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+  }
+
+  .label {
+    font-size: 14px;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}

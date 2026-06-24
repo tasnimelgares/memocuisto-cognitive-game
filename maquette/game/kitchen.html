@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MémoCuisto - La Cuisine</title>
+    <link rel="stylesheet" href=".\stylesheet.css">
+    <link rel="stylesheet" href="../global.css">
+    <script src="timer.js" defer></script>
+    <script src="../theme.js" defer></script>
+    <script src="kitchen.js" defer></script>
+</head>
+<body>
+
+    <h1>Étape 2 : L'Armoire à Rangement</h1>
+    <p class="instruction">Rangez les courses au bon endroit.</p>
+
+    <div class="kitchen-container" id="kitchen-container">
+        <img id="kitchen-image" src="../images/vide.jpeg" alt="Cuisine">
+        
+        <div class="dropzone" id="frigo" data-type="frais"></div>
+        <div class="dropzone" id="placard" data-type="sec"></div>
+    </div>
+
+    <div class="items-to-sort" id="bag">
+        <div class="draggable" draggable="true" data-type="sec" id="farine"><img src="../images/farine.png" alt="Farine"></div>
+        <div class="draggable" draggable="true" data-type="frais" id="oeuf"><img src="../images/oeufs.png" alt="oeuf"></div>
+        <div class="draggable" draggable="true" data-type="sec" id="chocolat"><img src="../images/chocolat.png" alt="choco"></div>
+    </div>
+
+    <div id="feedback"></div>
+    <a href="steps.html" class="btn-next" id="next-btn" style="display: none;">Préparer le gâteau ➔</a>
+
+    <footer>
+        <p>2026 MémoCuisto - Projet de stimulation cognitive</p>
+    </footer>
+
+</body>
+</html>

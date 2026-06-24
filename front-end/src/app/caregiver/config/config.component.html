@@ -1,0 +1,46 @@
+<div class="global-page-wrapper">
+
+  <div class="nav-buttons-container">
+    <app-button text="" imgSrc="assets/img/acceuil.png" redirectTo="/" buttonColor="#95a5a6"></app-button> 
+    <app-button text="Retour" redirectTo="/caregiver/dashboard" buttonColor="#95a5a6"></app-button>
+  </div>
+
+  <app-page-title [title]="'Configuration de la prochaine partie pour ' + patientActuel?.firstName"></app-page-title>
+
+  <main class="config-container">
+    
+    <div class="column left-column">
+      <app-content-card>
+        <app-recipe-settings></app-recipe-settings>
+      </app-content-card>
+
+      <app-content-card>
+        <app-help-settings></app-help-settings>
+      </app-content-card>
+
+      <app-content-card>
+        <app-theme-settings></app-theme-settings>
+      </app-content-card>
+
+    </div>
+
+    <div class="column right-column">
+
+      <app-content-card>
+        <app-game-settings></app-game-settings>
+      </app-content-card>
+
+      <app-content-card>
+        <app-voice-settings></app-voice-settings>
+      </app-content-card>
+
+    </div>
+
+  </main>
+  <app-button 
+      text="Lancer la partie ! " 
+      class="btn-lancer"
+      (click)="goToGame()" >
+    </app-button>
+
+</div>

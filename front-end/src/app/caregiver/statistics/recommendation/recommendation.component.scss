@@ -1,0 +1,40 @@
+.reco-container {
+  margin-top: 15px;
+  
+  .reco-trigger {
+    color: #2980b9;
+    cursor: help;
+    margin: 0;
+    display: inline-block;
+    border-bottom: 2px dotted #2980b9;
+    
+    .survol-info {
+      font-size: 12px;
+      font-weight: normal;
+      opacity: 0.6;
+    }
+  }
+
+  .reco-content {
+    background-color: #e1f5fe;
+    color: #0277bd;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.4;
+    
+    /*  caché par défaut */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Au survol du conteneur, on affiche le contenu */
+  &:hover .reco-content {
+    opacity: 1;
+    max-height: 200px; /* Assez grand pour tout le texte */
+    padding: 12px;
+  }
+}

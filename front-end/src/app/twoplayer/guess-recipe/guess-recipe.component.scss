@@ -1,0 +1,256 @@
+// --- VARIABLES (Pour harmoniser facilement les couleurs) ---
+$primary-color: #2d3436;
+$text-muted: #7f8c8d;
+$correct-color: #27ae60;
+$wrong-color: #bdc3c7;
+$hint-color: #f39c12;
+$hint-hover: #f1c40f;
+$key-bg: #f0f0f0;
+
+// --- ANIMATIONS ---
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  40% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+// --- CONTENEUR PRINCIPAL ---
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    justify-self: center;
+
+    .guess-container {
+        margin-top: 3vh;
+        width: 100%;
+        max-width: 1000px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.guess-layout {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: center; 
+    gap: 20px;
+    width: 100%;
+    flex-wrap: nowrap; 
+
+    .keyboard-card {
+        flex: 1;
+        width: 100%;
+        max-width: 750px; 
+
+        ::ng-deep .card {
+            align-items: center;
+        }
+    }
+
+    .recipe-hint-card {
+        width: 250px; 
+        flex-shrink: 0; 
+
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        align-items: center;
+
+        .hint-title {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: $primary-color;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .image-wrapper {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px; 
+            background: #f8f9fa;
+        }
+
+        .blurred-recipe-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: filter 1s ease; 
+            pointer-events: none; 
+
+        }
+    }
+}
+
+// --- MOT À DEVINER ---
+.word-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.letter-slot {
+    font-size: 2.5rem; 
+    font-weight: 800;
+    min-width: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary-color;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+
+    // Animation quand la lettre n'est plus un '_'
+    &:not([innerText="_"]):not(:empty):not(.is-space) {
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    // Gestion de l'espace entre les mots
+    &.is-space, &:empty, &[innerText=" "] {
+        width: 15px;
+        min-width: 15px;
+    }
+}
+
+// --- LETTRES DÉJÀ TAPÉES ---
+.letters-tried {
+    font-size: 0.9rem;
+    color: $text-muted;
+    background-color: #f8f9fa;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+// --- BOUTON INDICE ---
+.hint-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+
+    .btn-indice {
+        background: linear-gradient(135deg, $hint-color, $hint-hover);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(243, 156, 18, 0.3), 0 4px darken($hint-color, 10%);
+        transition: all 0.15s ease;
+
+        &:hover:not(:disabled) {
+            transform: translateY(2px);
+            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.3), 0 2px darken($hint-color, 10%);
+        }
+
+        &:active:not(:disabled) {
+            transform: translateY(4px);
+            box-shadow: 0 0 transparent;
+        }
+
+        &:disabled {
+            background: #dcdde1;
+            box-shadow: none;
+            color: #a4b0be;
+            cursor: not-allowed;
+            transform: none;
+        }
+    }
+}
+
+// --- CLAVIER VIRTUEL ---
+.virtual-keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px; 
+    width: 100%;
+}
+
+.key-button {
+    width: 45px;
+    height: 55px;
+    border-radius: 8px;
+    border: none;
+    background-color: $key-bg;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px #d1d8e0;
+    transition: transform 0.1s, box-shadow 0.1s, background-color 0.3s;
+    user-select: none; // Empêche la sélection du texte au double clic
+
+    &:hover:not(:disabled) {
+        background-color: darken($key-bg, 5%);
+        transform: translateY(2px);
+        box-shadow: 0 2px #d1d8e0;
+    }
+
+    &:active:not(:disabled) {
+        transform: translateY(4px);
+        box-shadow: 0 0 transparent;
+    }
+
+    // Style quand la lettre est DANS la recette (Vert)
+    &.correct {
+        background-color: $correct-color;
+        color: white;
+        box-shadow: 0 4px darken($correct-color, 15%);
+        
+        &:active { box-shadow: 0 0 transparent; }
+    }
+
+    // Style quand la lettre n'est PAS dans la recette (Gris)
+    &.wrong {
+        background-color: $wrong-color; 
+        color: white;
+        box-shadow: none;
+        cursor: default;
+        transform: none;
+        opacity: 0.5;
+    }
+}
+
+// --- TEXTE D'ENCOURAGEMENT ---
+app-encouragement-text {
+  display: block;
+  min-height: 2rem; 
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+  
+  &[hidden] {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

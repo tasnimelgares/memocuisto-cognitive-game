@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "firstName": "Jean",
+    "lastName": "Dumand",
+    "nickname": "Papy Jean",
+    "age": 82,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/1.png"
+  },
+  {
+    "id": 2,
+    "firstName": "Caroline",
+    "lastName": "Martin",
+    "nickname": "Carole",
+    "age": 75,
+    "accessibility": {
+      "isVisuallyImpaired": true,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/2.png"
+  },
+  {
+    "id": 3,
+    "firstName": "Paul",
+    "lastName": "Durand",
+    "nickname": "Paulo",
+    "age": 80,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/3.png"
+  },
+  {
+    "id": 4,
+    "firstName": "Marie",
+    "lastName": "Lefèvre",
+    "nickname": "Mamie Marie",
+    "age": 78,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": true
+    },
+    "imageUrl": "assets/img/patients/4.png"
+  },
+  {
+    "id": 5,
+    "firstName": "Luc",
+    "lastName": "Bernard",
+    "nickname": "Lulu",
+    "age": 83,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/5.png"
+  },
+  {
+    "id": 6,
+    "firstName": "Sophie",
+    "lastName": "Petit",
+    "nickname": "Soso",
+    "age": 76,
+    "accessibility": {
+      "isVisuallyImpaired": true,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/6.png"
+  },
+  {
+    "id": 7,
+    "firstName": "Jean-Marc",
+    "lastName": "Petit",
+    "nickname": "JM",
+    "age": 81,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": true
+    },
+    "imageUrl": "assets/img/patients/7.png"
+  },
+  {
+    "id": 8,
+    "firstName": "Joseph",
+    "lastName": "Legrand",
+    "nickname": "Jo",
+    "age": 85,
+    "accessibility": {
+      "isVisuallyImpaired": true,
+      "isHearingImpaired": true
+    },
+    "imageUrl": "assets/img/patients/8.png"
+  },
+  {
+    "id": 9,
+    "firstName": "Julie",
+    "lastName": "Delaporte",
+    "nickname": "Juju",
+    "age": 74,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/9.png"
+  },
+  {
+    "id": 10,
+    "firstName": "Céline",
+    "lastName": "Pastor",
+    "nickname": "Céline",
+    "age": 77,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": true
+    },
+    "imageUrl": "assets/img/patients/10.png"
+  },
+  {
+    "id": 11,
+    "firstName": "Lisa",
+    "lastName": "Dupont",
+    "nickname": "Lili",
+    "age": 73,
+    "accessibility": {
+      "isVisuallyImpaired": false,
+      "isHearingImpaired": false
+    },
+    "imageUrl": "assets/img/patients/11.png"
+  }
+]

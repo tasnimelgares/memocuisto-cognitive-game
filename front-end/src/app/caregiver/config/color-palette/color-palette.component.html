@@ -1,0 +1,15 @@
+<div class="palette-grid">
+  <div
+    *ngFor="let c of palette"
+    class="color-circle"
+    [style.background]="c.isDefault ? null : c.hex"
+    [title]="c.name"
+    [class.is-default]="c.isDefault"
+    [class.active]="c.name === selectedThemeName"
+    (click)="selectTheme(c)">
+    <div class="inner">
+      <span *ngIf="c.isDefault">↺</span>
+      <span *ngIf="!c.isDefault && c.name === selectedThemeName" class="check">✓</span>
+    </div>
+  </div>
+</div>

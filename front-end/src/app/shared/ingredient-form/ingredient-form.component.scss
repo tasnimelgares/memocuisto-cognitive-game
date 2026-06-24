@@ -1,0 +1,81 @@
+@use 'src/styles.scss' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form  {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 2rem;
+
+    h4 { margin-top: 0; margin-bottom: 1rem; color: $police_bleu_fonce; font-size: 1.6rem;}
+    p { margin-top: 0; color: $police_gris_clair; }
+
+    .form-header {
+        padding-bottom: 1rem; 
+    }
+
+    max-height: 85vh; 
+    box-sizing: border-box;
+
+    overflow-y: auto; 
+    overflow-x: hidden;
+    padding-right: 8px;
+    
+    label {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        font-weight: bold;
+        color: $police_bleu_fonce;
+    }
+
+    app-button {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem;
+    }
+}
+
+.btn-close {
+    background: $bordure_gris_pale;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: $bleu_turquoise_defaut;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.2s;
+
+    &:hover {
+        background: $bleu_turquoise_defaut;
+        color: $bordure_gris_pale;
+        transform: rotate(90deg);
+    }
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* --- APERÇU DE L'IMAGE --- */
+.preview {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border: 2px dashed $police_gris_clair;
+    border-radius: 10px;
+
+    img { max-width: 100px; max-height: 100px; display: block; margin: 0 auto 10px auto; object-fit: contain; }
+    b { color: $police_bleu_fonce; font-size: 1.1rem; }
+}

@@ -1,0 +1,22 @@
+<template id="recipe-modal-template">
+    <link rel="stylesheet" href="components/recipemodal/recipe-modal.css">
+    
+    <div class="modal-content">
+        <div id="step-ingredients">
+            <h2 class="modal-title">Voilà ce que vous allez acheter, regardez bien :</h2>
+            <div class="ingredients-grid">
+                <slot name="ingredients"></slot> 
+            </div>
+            <div class="modal-buttons-container">
+                <button class="btn-retour">Retour</button>
+                <button class="btn-valider">J'ai mémorisé, on y va !</button>
+            </div>
+        </div>
+        <div id="step-ready">
+            <div class="ready-box">
+                <h2>Prêts ? C’est parti !</h2>
+            </div>
+            <p class="timer-text">Timer</p>
+        </div>
+    </div>
+</template>

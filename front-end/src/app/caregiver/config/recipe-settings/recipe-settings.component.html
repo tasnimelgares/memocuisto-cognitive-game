@@ -1,0 +1,57 @@
+<app-description>
+  🍳 Paramètres de la recette
+</app-description>
+
+<div class="recipe-form-container">
+
+  <section class="settings-section">
+
+    <div class="section-header">
+      <h2>Liste de courses</h2>
+      <p>Veuillez configurer la difficulté et la densité des ingrédients affichés dans les rayons.</p>
+    </div>
+
+    <div class="form-group">
+      <label>Niveau de difficulté</label>
+      <p>Veuillez choisir la complexité globale des recettes proposées.</p>
+
+      <select
+        class="custom-input"
+        [ngModel]="config.difficulte"
+        (change)="onDifficulteChange($event)">
+
+        <option value="tout">Tout (Toutes les recettes)</option>
+        <option value="facile">Facile (- de 4 ingrédients)</option>
+        <option value="moyen">Moyen (5 - 6 ingrédients)</option>
+        <option value="difficile">Difficile (+ de 7 ingrédients)</option>
+
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Densité du rayon</label>
+      <p class="input-description">
+        Plus la densité est élevée, plus les rayons sont chargés en produits. Minimum de 5 produits par rayons.
+      </p>
+
+      <div class="slider-wrapper">
+
+        <div class="slider-top">
+          <span class="slider-min">Peu chargé</span>
+          <span class="slider-value">{{ config.maxIngredientsParRayon }}%</span>
+          <span class="slider-max">Très chargé</span>
+        </div>
+
+        <input
+          type="range"
+          min="1"
+          max="100"
+          step="1"
+          class="density-slider"
+          [ngModel]="config.maxIngredientsParRayon"
+          (input)="onMaxIngredientsChange($event)">
+      </div>
+    </div>
+
+  </section>
+</div>

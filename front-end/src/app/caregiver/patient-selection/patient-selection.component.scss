@@ -1,0 +1,229 @@
+.btn-retour {
+  position: fixed;
+  top: clamp(1rem, 2.5vh, 2rem);
+  left: clamp(1rem, 2vw, 2rem); 
+  z-index: 10;
+}
+
+.btn-changer-mdp {
+  position: fixed;
+  top: clamp(1rem, 2.5vh, 2rem); 
+  right: clamp(1rem, 2vw, 2rem); 
+  z-index: 10;
+}
+
+.main-container {
+  height: 100%;
+  overflow-y: auto !important;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: clamp(1rem, 5vh, 4rem) clamp(1rem, 2vw, 2rem);
+  box-sizing: border-box;
+}
+
+.view-wrapper {
+  width: 100%;
+  max-width: clamp(600px, 80vw, 1500px); 
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(1rem, 3vh, 2rem);
+
+  h3 { 
+    margin: 0; 
+    color: #2c3e50; 
+    font-size: clamp(1rem, 1.2rem, 1.5rem);
+  }
+}
+
+.add-patient-trigger {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: clamp(0.5rem, 1.2vh, 1rem) clamp(1rem, 1.5vw, 2rem);
+  border-radius: clamp(1rem, 2.5vh, 2rem);
+  font-weight: 600;
+  font-size: clamp(0.8rem, 1vh, 1.1rem);
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+
+  &:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+  }
+}
+
+.actions-footer {
+  margin-top: clamp(1rem, 3vh, 2.5rem);
+  display: flex;
+  justify-content: center;
+}
+
+.animate-fade {
+  animation: fadeInOut 0.4s ease-out;
+}
+
+@keyframes fadeInOut {
+  from {
+    opacity: 0;
+    transform: scale(0.98); 
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.search-row {
+  display: flex;
+  align-items: flex-end; 
+  gap: clamp(0.5rem, 1.5vw, 1.5rem); 
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+app-patient-search {
+  flex: 1; 
+}
+
+.btn-suivant {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.2vh;
+}
+
+// --- STYLES DE LA POPUP MODALE ---
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(44, 62, 80, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  width: clamp(350px, 45vw, 600px); 
+  padding: clamp(1.5rem, 4vh, 2.5rem);
+  border-radius: clamp(1rem, 2.5vh, 2rem);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+  animation: fadeInOut 0.3s ease-out;
+
+  h2 { 
+    margin-bottom: clamp(1rem, 2vh, 1.5rem);
+    color: #2c3e50; 
+    font-size: clamp(1.5rem, 2vw, 2.2rem); 
+  }
+
+  p {
+    margin-bottom: clamp(1.2rem, 2.5vh, 2rem);
+    color: #7f8c8d;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem); 
+  }
+  
+  .success-message {
+    color: #27ae60; 
+    font-weight: bold;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    margin-top: 15px;
+  }
+
+  .error-message {
+    color: #e74c3c; 
+    font-weight: bold;
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    margin-top: 15px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #7f8c8d;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #e74c3c;
+  }
+}
+
+.password-input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: clamp(0.5rem, 1vw, 1rem);
+
+  .input-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      padding: clamp(0.6rem, 1.5vh, 1rem) clamp(2.5rem, 3vw, 3rem) clamp(0.6rem, 1.5vh, 1rem) clamp(1rem, 2vw, 1.5rem);
+      border: 2px solid #bdc3c7;
+      border-radius: clamp(0.5rem, 1vh, 1rem);
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem); 
+      box-sizing: border-box;
+      
+      &:focus {
+        outline: none;
+        border-color: #3498db;
+      }
+    }
+
+    .toggle-visibility-btn {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7f8c8d; 
+      padding: 5px;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        color: #3498db; 
+        transform: scale(1.1);
+      }
+
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  app-button {
+    display: block; 
+  }
+}

@@ -1,0 +1,42 @@
+@use 'src/styles.scss' as *;
+
+.ingredient-mini-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #f8fafc;
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid $bordure_gris_pale;
+    transition: transform 0.2s, background-color 0.2s;
+
+    &:hover {
+        transform: translateX(4px);
+        background-color: #f1f5f9;
+    }
+    
+    .mini-img-container {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+        border: 1px solid $bordure_gris_pale;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+
+        img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+    }
+
+    .mini-ing-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $police_bleu_fonce;
+    }
+}

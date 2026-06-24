@@ -1,0 +1,18 @@
+<div class="delete-modal-overlay" (click)="onCancel()">
+  <div class="delete-modal-content animate-fade" (click)="$event.stopPropagation()">
+    
+    <p class="question-text">{{ questionText }}</p>
+    
+    <p class="warning-text">⚠️ Cette action est irréversible. Toutes les données associées seront perdues.</p>
+          
+    <div class="modal-actions">
+      <button class="cancel-btn" (click)="onCancel()">
+        Annuler et revenir
+      </button>
+      <button class="confirm-delete-btn" (click)="onConfirm()">
+        Supprimer définitivement
+      </button>
+    </div>
+
+  </div>
+</div>

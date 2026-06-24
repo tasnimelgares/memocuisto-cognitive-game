@@ -1,0 +1,30 @@
+services:
+  front :
+    image: memocuisto-front
+    build : 
+      context : ../front-end
+      dockerfile: Dockerfile
+      args: 
+        ENVIRONNEMENT: docker
+    ports: 
+      - 8080:80
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    depends_on :
+      - back
+  back :
+    image: memocuisto-back 
+    build: ../backend 
+    command: npm run dev
+    ports:
+      - 8081:9428 # L'hôte écoute sur 8081 et redirige vers le 9428 du conteneur
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"] 
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ../backend/database/:/database/:rw

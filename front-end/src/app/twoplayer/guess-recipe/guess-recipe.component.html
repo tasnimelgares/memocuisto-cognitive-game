@@ -1,0 +1,73 @@
+<div class="game-container">
+    <app-sidebar>
+        <app-count-up-timer 
+            menu-timer
+            *ngIf="gameConfig"
+            [aideTimings]="gameConfig.timingsAides">
+        </app-count-up-timer>
+    </app-sidebar>
+
+    <app-page-title title="Étape 3 : Deviner la recette"></app-page-title>
+
+    <app-instruction 
+        [text]="'Veuillez deviner le nom de la recette en entrant des lettres.'" 
+        phraseId="devinette">
+    </app-instruction>
+
+    <div class="guess-container">
+        
+       <div class="guess-layout">
+            <app-content-card class="keyboard-card">
+                <div class="word-display">
+                    <span *ngFor="let char of recipeLetters" 
+                        class="letter-slot"
+                        [class.is-space]="char === ' '">
+                        {{ isLetterFound(char) ? char : '_' }}
+                    </span>
+                </div>
+                <div class="letters-tried">
+                    Lettres tapées : {{ lettersGuessed.join(', ') | uppercase }}
+                </div>
+
+                <div class="hint-container">
+                    <button class="btn-indice" 
+                            (click)="aideLettre()" 
+                            [disabled]="isGameWon">
+                        💡 Demander un indice
+                    </button>
+                </div>
+
+                <div class="virtual-keyboard">
+                    <div class="keyboard-row" *ngFor="let row of keyboardRows">
+                        <button *ngFor="let key of row" 
+                                (click)="onKeyPress(key)"
+                                class="key-button"
+                                [disabled]="lettersGuessed.includes(normalize(key)) || isGameWon"
+                                [class.correct]="isLetterCorrect(key)"
+                                [class.wrong]="isLetterWrong(key)">
+                            {{ key }}
+                        </button>
+                    </div>
+                </div>
+
+            </app-content-card>
+            <app-content-card class="recipe-hint-card">
+                <h3 class="hint-title">Indice visuel</h3>
+                <div class="image-wrapper">
+                        <img [src]="currentRecipe.imageUrl || 'assets/img/recette-defaut.png'" 
+                            alt="Indice recette" 
+                            class="blurred-recipe-img"
+                            [style.filter]="'blur(' + flouActuel + 'px)'">
+                </div>
+            </app-content-card>
+        </div>
+
+        <app-encouragement-text 
+            *ngIf="feedbackMessage !== ''" 
+            [text]="feedbackMessage" 
+            [color]="feedbackColor"
+            [autoPlay]="false">
+        </app-encouragement-text>
+    </div>
+
+</div>

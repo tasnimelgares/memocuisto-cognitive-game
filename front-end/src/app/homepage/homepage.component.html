@@ -1,0 +1,132 @@
+<app-background>
+    <div id="app">
+        <app-homepage-title title="MemoCuisto"></app-homepage-title>
+        
+        <div class="aidant-container" *ngIf="!isPatientSelected">
+            <img src="assets/img/perfil.png" class="aidant-picture" alt="Profil">
+            <app-button 
+                text="Profil Soignant(e)"
+                (action)="openPasswordModal()">  
+            </app-button>
+        </div>
+
+        <div class="change-profile-container" *ngIf="isPatientSelected">
+            <app-button 
+                text="Déconnexion"
+                (action)="changerDeProfil()">  
+            </app-button>
+        </div>
+
+        <div class="btn-catalogue" *ngIf="isPatientSelected">
+            <app-button 
+                text="Catalogue"
+                redirectTo="/collection">  
+            </app-button>
+        </div>
+    
+    
+        <div class="main-content">
+            
+            <ng-container *ngIf="!isPatientSelected">
+                <app-button 
+                    class="big-play-btn"
+                    text="JOUER" 
+                    buttonColor="orange"
+                    [isLarge]="true"
+                    (action)="openModal()">
+                </app-button>
+            </ng-container>
+
+            <ng-container *ngIf="isPatientSelected">
+                <app-button 
+                    id="btn-solo"
+                    text="Jouer en autonomie" 
+                    icon="👨‍🍳"
+                    buttonColor="orange"
+                    redirectTo="/player/select-recipe" 
+                    [isLarge]="true"
+                    (action)="choisirMode(true)">
+                </app-button>
+        
+                <app-button 
+                    id="btn-duo"
+                    text="Jouer avec un proche" 
+                    icon="🧑‍🤝‍🧑"
+                    buttonColor="orange"
+                    redirectTo="/twoplayer" 
+                    [isLarge]="true"
+                    (action)="choisirMode(false)">
+                </app-button>
+            </ng-container>
+            
+            <div class="secondary-actions">
+                <app-button 
+                    text="Comment jouer ?" 
+                    buttonColor="#048B9A"
+                    imgSrc="assets/img/consignes.png"
+                    redirectTo="/game-rules">
+                </app-button>
+            </div>
+        </div>
+
+        <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+            <div class="modal-content" (click)="$event.stopPropagation()">
+                <button class="close-btn" (click)="closeModal()">✖</button>
+                <h2>Sélectionne ton profil</h2>
+                
+                <div class="profiles-grid">
+                  <div
+                    class="profile"
+                    *ngFor="let patient of patients"
+                    (click)="selectPatient(patient)">
+                    <img [src]="patient.imageUrl" (error)="handleImgError($event)" [alt]="patient.firstName">
+                    <span class="patient-name">{{ patient.firstName }} {{ patient.lastName }}</span>
+                  </div>      
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="modal-overlay password-modal" *ngIf="showPasswordModal" (click)="closePasswordModal()">
+            <div class="modal-content animate-fade" (click)="$event.stopPropagation()">
+                <button class="close-btn" (click)="closePasswordModal()">✖</button>
+                <h2>Accès Soignant</h2>
+                <p>Veuillez entrer le mot de passe pour accéder à la gestion des patients.</p>
+                
+                <div class="password-input-group">
+                    
+                    <div class="input-wrapper">
+                        <input 
+                            #passwordInput
+                            [type]="isPasswordVisible ? 'text' : 'password'" 
+                            [(ngModel)]="caregiverPassword" 
+                            placeholder="Mot de passe..."
+                            (keydown.enter)="submitPasswordVerification()">
+                        
+                        <button class="toggle-visibility-btn" type="button" (click)="togglePasswordVisibility()" title="Afficher/Masquer">
+                          
+                          <svg *ngIf="!isPasswordVisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                          </svg>
+            
+                          <svg *ngIf="isPasswordVisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                          </svg>
+            
+                        </button>
+                    </div>
+                        
+                    <app-button 
+                        text="Valider" 
+                        (action)="submitPasswordVerification()">
+                    </app-button>
+                </div>
+                
+                <p class="error-message" *ngIf="passwordError">{{ passwordError }}</p>
+            </div>
+        </div>
+
+    </div>
+</app-background>

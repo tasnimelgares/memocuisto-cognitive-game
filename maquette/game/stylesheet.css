@@ -1,0 +1,300 @@
+/* --- STYLES GÉNERAUX --- */
+body { 
+    text-align: center; 
+    background: var(--main-bg); 
+    color: #2c3e50; 
+    margin: 0; 
+    padding: 10px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+} 
+
+h1 { color: #2c3e50; margin-top: 5px; margin-bottom: 5px; font-size: 1.6rem; } 
+.instruction { margin-top: 0; margin-bottom: 10px; font-size: 1rem; } 
+#feedback { font-weight: bold; margin-top: 10px; height: 25px; font-size: 1.1rem; }
+
+/* Boutons de navigation internes au jeu */
+.btn-next, #check-btn { 
+    width: 250px; 
+    margin: 15px auto 20px auto; 
+    padding: 12px 20px; 
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 30px; 
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3); 
+    transition: transform 0.2s, background-color 0.2s;
+    align-self: center;
+}
+
+.btn-next:hover, #check-btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px); 
+}
+
+.btn-next { display: none; }
+#check-btn { display: block; }
+
+#retour-container { display: none; margin-top: 20px; margin-bottom: 20px; align-self: center; }
+
+/* --- PAGE 1 : RAYONS (aisle) --- */
+#memory-list { display: inline-block; }
+
+#supermarket-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; 
+    margin: 0 auto;
+    display: none; 
+}
+
+#supermarket-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.item.hotspot {
+    position: absolute;
+    background-color: transparent; 
+    cursor: pointer;
+    z-index: 10;
+}
+
+#hotspot-flour { top: 10%; left: 12%; width: 20%; height: 20%; }
+#hotspot-eggs-top { top: 10%; left: 35%; width: 28%; height: 17%; }
+#hotspot-eggs { top: 35%; left: 12%; width: 20%; height: 15%; }
+#hotspot-chocolate { top: 35%; left: 38%; width: 28%; height: 16%; }
+#hotspot-wrong1 { top: 60%; left: 65%; width: 25%; height: 25%; }
+
+.item.hotspot.selected {
+    border: 4px solid #28a745 !important; 
+    box-shadow: none !important; 
+    background-color: rgba(40, 167, 69, 0.2); 
+}
+
+
+/* --- PAGE 2 : CUISINE (kitchen) --- */
+.kitchen-container {
+    position: relative;
+    max-width: 700px; 
+    width: 95%; 
+    margin: 0 auto;
+}
+
+#kitchen-image {
+    width: 100%;
+    height: auto; 
+    display: block;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.dropzone {
+    position: absolute;
+    background-color: transparent; 
+    border: 3px dashed transparent; 
+    border-radius: 8px;
+    transition: background-color 0.2s, border-color 0.2s;
+    z-index: 10;
+}
+
+.dropzone.hover {
+    border-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.3); 
+}
+
+#frigo { top: 10%; left: 8%; width: 30%; height: 65%; }
+#placard { top: 8%; left: 65%; width: 28%; height: 40%; }
+
+.items-to-sort { display: flex; justify-content: center; gap: 30px; margin-top: 15px; }
+
+.draggable { 
+    background: #fff; 
+    border: 3px solid #333; 
+    border-radius: 12px; 
+    cursor: grab; 
+    width: 70px; 
+    height: 70px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    transition: transform 0.1s;
+}
+
+.draggable img { width: 80%; height: 80%; object-fit: contain; }
+.draggable:active { cursor: grabbing; transform: scale(1.1); }
+
+
+/* --- PAGE 3 : ÉTAPES DE LA RECETTE --- */
+
+.recipe-game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    width: 95%;
+}
+
+.column {
+    flex: 1;
+    min-width: 280px;
+}
+
+.column h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.step-list { 
+    list-style: none; 
+    padding: 15px; 
+    min-height: 300px; 
+    background: white; 
+    border-radius: 16px; 
+    border: 2px dashed #cbd5e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); 
+    margin: 0; 
+}
+
+.step-item { 
+    background: #f8f9fa; 
+    border: 2px solid #e9ecef; 
+    border-left: 6px solid #007bff; 
+    border-radius: 8px; 
+    padding: 12px 15px; 
+    margin-bottom: 10px; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    font-size: 1rem; 
+    color: #495057;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.step-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+}
+
+.badge {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    margin-right: 15px;
+    font-weight: bold;
+    flex-shrink: 0;
+    text-align: center;
+    transition: 0.3s;
+}
+
+#available-steps .badge { display: none; }
+#player-recipe .badge { display: inline-block; color: white; background-color: #007bff; }
+
+.step-item.selected {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+/* Harmonisation des boutons du bas */
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    align-self: center;
+}
+
+#reset-btn, #check-btn {
+    width: 250px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 0; 
+}
+
+#reset-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+#reset-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+
+/* --- BOUTON TIMER --- */
+#game-timer {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 5px 15px;
+    border-radius: 6px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+#toggle-timer {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 0;
+    background-color: #f8f9fa;
+    color: #b8b5af;
+    border: 1px solid #eee;
+    box-shadow: none;
+    width: auto;
+}
+
+#toggle-timer:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+
+#next-btn {
+    display: none; 
+    position: fixed;
+    right: 30px;    
+    top: 50%;       
+    transform: translateY(-50%);
+    z-index: 2000;  
+    
+    
+    width: auto;  
+    padding: 20px 30px;
+    background-color: #289daa;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+}
+
+#next-btn:hover {
+    background-color: #228491;
+    transform: translateY(-50%) scale(1.05); /* Effet de zoom au survol */
+}

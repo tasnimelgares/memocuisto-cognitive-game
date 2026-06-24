@@ -1,0 +1,10 @@
+<div class="ingredient-container">
+  <div class="image-wrapper">
+    <img  [src]="ingredient.imageUrl"
+         (error)="img.src = defaultImage" 
+         #img
+         [alt]="ingredient.name" 
+         class="ingredient-img">
+  </div>
+  <p class="ingredient-name">{{ ingredient.name }}</p>
+</div>

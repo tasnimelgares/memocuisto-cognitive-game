@@ -1,0 +1,41 @@
+<div class="select-container">
+  <div class="input-wrapper">
+    <input 
+      type="text" 
+      [formControl]="searchControl" 
+      [placeholder]="selectedIngredients.length >= MAX_INGREDIENTS ? 'Limite de 15 ingrédients atteinte' : 'Cliquez pour afficher tous les ingrédients'"
+      class="search-input"
+      (focus)="onFocus()"
+      (keydown.enter)="onEnter($event)"
+      [readonly]="selectedIngredients.length >= MAX_INGREDIENTS"
+    >
+    <button 
+      *ngIf="isInputFocused" 
+      type="button" 
+      class="close-dropdown-btn" 
+      (click)="closeDropdown()">
+      ×
+    </button>
+  </div>
+
+  <ul class="dropdown" *ngIf="(filteredIngredients$ | async) as results">
+    <li *ngFor="let ing of results" (click)="addIngredient(ing)" [ngStyle]="{'background-color': getRayonColor(ing.rayon)}">
+      {{ ing.name }} <small>({{ ing.rayon }})</small>
+    </li>
+  </ul>
+
+  <div class="selected-chips" *ngIf="selectedIngredients.length > 0">
+    <span class="chip" *ngFor="let ing of selectedIngredients">
+      {{ ing.name }}
+      <button type ="button" (click)="removeIngredient(ing)">×</button>
+    </span>
+  </div>
+</div>
+
+<small *ngIf="formControl.invalid && formControl.touched && selectedIngredients.length === 0" class="error-msg">
+    Veuillez ajouter au moins un ingrédient.
+</small>
+
+<small *ngIf="selectedIngredients.length >= MAX_INGREDIENTS" class="warning-msg" style="color: orange;">
+  Vous avez atteint la limite maximum de {{ MAX_INGREDIENTS }} ingrédients.
+</small>

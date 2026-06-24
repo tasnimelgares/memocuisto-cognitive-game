@@ -1,0 +1,51 @@
+.select-recipe-page {
+    display: flex;
+    flex-direction: column; 
+    height: 100vh;          
+    width: 100%;           
+    overflow: hidden;      
+    box-sizing: border-box;
+    padding: 20px;
+
+    &:first-child {
+        position: fixed;
+    }
+}
+
+.recipes-display {
+  display: flex;
+  flex: 1;       
+  min-height: 0; 
+  gap: 20px;
+  padding-bottom: 20px; 
+}
+
+.memorize-container {
+
+    /* On le fixe sur tout l'écran */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    /* Centrage de la carte */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    /* Toujours au-dessus de tout */
+    z-index: 9999;
+    
+    /* Fond semi-transparent pour assombrir l'arrière-plan */
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(4px); /* floute l'arrière-plan */
+
+    flex: 1;
+    /* Animation pour une apparition fluide */
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

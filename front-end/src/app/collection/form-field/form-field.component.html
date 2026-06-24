@@ -1,0 +1,24 @@
+<div class="field-container">
+    <label>{{ label }}</label>
+
+    <select *ngIf="options && options.length>0; else defaultInput"
+        [formControl]="formControl"
+        [class.is-invalid]="formControl.invalid && formControl.touched">
+        <option value="" disabled selected>{{defaultOption}}</option>
+        <option *ngFor="let opt of options" [value]="opt[valueKey]">{{ opt[labelKey] }}</option>
+    </select>
+  
+    <ng-template #defaultInput>
+        <input 
+        [type]="type" 
+        [placeholder]="placeholder" 
+        [formControl]="formControl"
+        [class.is-invalid]="formControl.invalid && formControl.touched">
+    </ng-template>
+    
+    <div *ngIf="formControl.invalid && formControl.touched">
+        <small>{{errorMessage}}</small>
+    </div>
+</div>
+
+<!--- [class.error-border]="formControl.invalid && formControl.touched" -->

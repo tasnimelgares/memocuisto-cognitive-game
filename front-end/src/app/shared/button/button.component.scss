@@ -1,0 +1,134 @@
+.btn {
+  min-width: 180px;
+  padding: 16px 28px;
+
+  background: var(--btn-color, #348485);
+  color: white;
+
+  border: none;
+  border-radius: 18px;
+
+  font-family: 'Fredoka', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 6px 0 rgba(0, 0, 0, 0.2),
+    0 10px 20px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.2s ease;
+}
+
+.btn:hover:not(.btn-disabled) {
+  transform: translateY(-3px) scale(1.03);
+
+  box-shadow:
+    0 9px 0 rgba(0, 0, 0, 0.2),
+    0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active:not(.btn-disabled) {
+  transform: translateY(3px);
+
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+
+  border: 2px solid rgba(255, 255, 255, 0.25);
+
+  pointer-events: none;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.button-text {
+  letter-spacing: 1px;
+}
+
+.button-icon {
+  font-size: 1.5rem;
+}
+
+.button-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -120%;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transform: skewX(-25deg);
+  transition: 0.7s ease;
+}
+
+.btn:hover .btn-shine {
+  left: 150%;
+}
+
+.btn-large {
+  min-width: 350px;
+  min-height: 90px;
+
+  padding: 24px 40px;
+
+  font-size: 26px;
+
+  border-radius: 24px;
+}
+
+.btn-disabled {
+  background: #9b9b9b !important;
+
+  cursor: not-allowed;
+
+  opacity: 0.7;
+
+  box-shadow: none;
+
+  transform: none !important;
+}
+
+.btn-disabled .btn-shine {
+  display: none;
+}

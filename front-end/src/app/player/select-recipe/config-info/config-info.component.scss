@@ -1,0 +1,67 @@
+@use 'src/styles.scss' as *;
+
+.config-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start; // Aligne le bouton et le contenu en haut
+  gap: 15px;
+  font-family: $police_texte;
+
+  .config-trigger {
+    background-color: white;
+    font-size: $taille_texte_defaut;
+    color: $police_bleu_fonce;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &.button-active {
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+  }
+
+  .config-content {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    padding: 9px;
+    flex-direction: row;
+    gap: 8px;
+    
+    // État caché
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+
+    // État affiché au clic
+    &.show-content {
+      opacity: 1;
+      max-height: 30%; 
+      pointer-events: auto;
+    }
+
+    .info-group {
+        display: flex;
+        gap: 20px;
+        font-size: $taille_texte_defaut;
+        color: $police_bleu_fonce;
+    }
+
+    .helper-text {
+        margin: 0;
+        color: $police_gris_clair;
+        border-left: 2px solid $barre_grise_clair;
+        padding-left: 8px;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="fixed-back-btn">
+  <app-button text="Retour" redirectTo="/caregiver/dashboard" buttonColor="#95a5a6"></app-button>
+</div>
+<div class="global-page-wrapper">
+  <app-page-title title="Informations du profil"></app-page-title>
+
+  <main class="profile-container" *ngIf="patient">
+    <app-content-card>
+      <div class="profile-grid">
+        
+        <div class="left-col">
+          <h3>Identité</h3>
+          <div class="info-grid">
+            <app-info-input label="Nom" [(value)]="patient.lastName"></app-info-input>
+            <app-info-input label="Prénom" [(value)]="patient.firstName"></app-info-input>
+            <app-info-input label="Surnom" [(value)]="patient.nickname"></app-info-input>
+            <app-info-input label="Âge" [(value)]="patient.age" type="number"></app-info-input>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+    
+        <div class="right-col">
+          <h3>Accessibilité</h3>
+          <app-accessibility-param 
+            label="Malvoyant" 
+            description="Grossit les textes et icônes"
+            [(checked)]="patient.accessibility!.isVisuallyImpaired">
+          </app-accessibility-param>
+          <app-accessibility-param 
+            label="Malentendant" 
+            description="Active les aides visuelles"
+            [(checked)]="patient.accessibility!.isHearingImpaired">
+          </app-accessibility-param>
+        </div>
+      </div>
+
+       <div class="notes-standalone-section">
+        <h3>📝 Notes des aidants</h3>
+        <app-notes></app-notes>
+      </div>
+
+
+    </app-content-card>
+  
+    <div *ngIf="successMessage" class="feedback-toast">
+      ✔ {{ successMessage }}
+    </div>
+
+    <div class="actions-row">
+      <span></span>
+      <button class="save-btn" (click)="save()" [disabled]="isSaving">
+        {{ isSaving ? 'Enregistrement...' : 'ENREGISTRER' }}
+      </button>
+    </div>
+  </main>
+</div>

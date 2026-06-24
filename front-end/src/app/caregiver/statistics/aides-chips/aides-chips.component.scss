@@ -1,0 +1,19 @@
+.conteneur-chips {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  vertical-align: middle;
+}
+
+[class^="chip-"] {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.chip-simple { background-color: #fff9c4; border: 1px solid #f1c40f; color: #856404; }
+.chip-moyenne { background-color: #ffe0b2; border: 1px solid #f39c12; color: #873600; }
+.chip-forte  { background-color: #ffcdd2; border: 1px solid #e74c3c; color: #78281f; }
+.chip-reponse { background-color: #e1bee7; border: 1px solid #9b59b6; color: #4a235a; }

@@ -1,0 +1,11 @@
+<div class="inactivity-overlay" *ngIf="accompagnementService.afficherPopup">
+  <div class="inactivity-modal">
+    <div class="icon-container">⏰</div>
+    <h2>Avez-vous besoin d'aide ?</h2>
+    <p>Il semble que vous n'ayez pas joué depuis un petit moment.</p>
+    
+    <button class="btn-continuer" (click)="accompagnementService.fermerPopup()">
+      Je continue la partie
+    </button>
+  </div>
+</div>

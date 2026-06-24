@@ -1,0 +1,22 @@
+.page-title {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-family: 'Fredoka', sans-serif;
+       
+        letter-spacing: 2px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.2;
+        
+        text-align: center;
+        color: var(--title-color, #2c3e50);
+        margin: 0;
+
+        position: relative;
+        padding-bottom: 5px;
+    }
+}

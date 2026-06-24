@@ -1,0 +1,28 @@
+<app-button class="btn-retour" text="Retour" redirectTo="/choix-patient" buttonColor="#95a5a6"></app-button>
+
+<div class="global-page-wrapper">
+  
+  <app-page-title [title]="'Tableau de bord : ' + (patientActuel?.firstName) + ' ' + (patientActuel?.lastName)"></app-page-title>
+
+  <main class="global-content-area">
+    <app-content-card>
+
+      <div class="patient-profile-section" *ngIf="patientActuel">
+        <img 
+          [src]="patientActuel.imageUrl || 'assets/img/default-avatar.png'" 
+          alt="Photo de {{ patientActuel.firstName }}" 
+          class="patient-avatar"
+        >
+      </div>
+      
+      <div class="button-group">
+        <app-button text="Statistiques" redirectTo="/caregiver/statistics" [isLarge]="true"></app-button>
+        <app-button text="Configuration" redirectTo="/caregiver/config" [isLarge]="true"></app-button>
+        <app-button text="Catalogue" redirectTo="/collection" [isLarge]="true"></app-button>
+        <app-button text="Informations" redirectTo="/caregiver/profile" [isLarge]="true"></app-button>
+      </div>
+
+    </app-content-card>
+  </main>
+  
+</div>

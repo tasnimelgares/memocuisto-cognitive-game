@@ -1,0 +1,30 @@
+@use 'src/styles.scss' as *;
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 0;
+
+    .step-text {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        color: $police_bleu_fonce;
+        font-weight: 500;
+    }
+
+    .step-img-container {
+        max-width: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        display: inline-block;
+
+        .step-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+    }
+}

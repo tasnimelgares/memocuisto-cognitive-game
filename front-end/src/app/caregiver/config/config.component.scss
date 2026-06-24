@@ -1,0 +1,70 @@
+.global-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+app-page-title {
+  margin-left: clamp(10vw,15vw,20vw);
+  width: clamp(70vw, 80vw, 90vw); 
+}
+
+.nav-buttons-container {
+  position: fixed;
+  /* Utilisation de rem pour que l'espacement suive la taille du texte */
+  top: clamp(1rem, 1.3vh, 2rem);  
+  left: clamp(1rem, 1.3vw, 2rem);
+  z-index: 100;
+  
+  display: flex;
+  flex-direction: column; 
+  gap: 0.5rem; // ~12px
+}
+
+.config-container {
+  // Padding adaptatif : plus petit sur petit écran, max 30px
+  padding: clamp(1rem, 3vh, 2rem); 
+  
+  // Max-width en rem pour la consistance
+  max-width: 75rem; // 1200px / 16
+  margin: 2.5rem auto; // 40px
+  width: 100%;
+  box-sizing: border-box;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: clamp(1rem, 2.5vw, 2rem); // Gap qui s'adapte à la largeur
+  
+  align-items: start; 
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; // ~24px
+}
+
+.btn-lancer {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  // On utilise vh pour le placement vertical afin qu'il reste à 90% de la vue
+  top: 90vh; 
+  transform: translateY(-50%); 
+  z-index: 1000; 
+}
+
+@media (max-width: 48rem) { 
+  .config-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-lancer {
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
+    margin: 2rem auto;
+    width: fit-content;
+  }
+}

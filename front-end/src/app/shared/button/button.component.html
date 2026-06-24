@@ -1,0 +1,27 @@
+<button
+  [routerLink]="isDisabled ? null : redirectTo"
+  class="btn"
+  [class.btn-large]="isLarge"
+  [class.btn-disabled]="isDisabled"
+  [style.--btn-color]="buttonColor"
+  [disabled]="isDisabled"
+  (click)="onClick()"
+  tabindex="0">
+
+  <span class="btn-shine"></span>
+
+  <div class="btn-content">
+    <span *ngIf="icon" class="button-icon">{{ icon }}</span>
+
+    <img
+      *ngIf="imgSrc"
+      [src]="imgSrc"
+      alt="icône"
+      class="button-img">
+
+    <span *ngIf="text" class="button-text">
+      {{ text }}
+    </span>
+  </div>
+
+</button>

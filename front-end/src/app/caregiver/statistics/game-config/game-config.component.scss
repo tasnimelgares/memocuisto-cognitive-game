@@ -1,0 +1,21 @@
+.config-general-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #ccc;
+
+  .badge-config {
+    background-color: #f1f3f5;
+    color: #495057;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}

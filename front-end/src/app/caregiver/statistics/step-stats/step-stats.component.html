@@ -1,0 +1,20 @@
+<div class="step-item">
+  <div class="step-header-row">
+    <span class="step-title">{{ title }}</span>
+    <span class="step-score">{{ score }}%</span>
+  </div>
+
+  <div class="step-meta">
+⏳ Temps : {{ timeSpent }}s
+    <ng-container *ngIf="timeLimit === 'illimite'"></ng-container>
+    <ng-container *ngIf="timeLimit !== 'illimite'"> / {{ timeLimit }}s</ng-container>
+  </div>
+
+  <span class="step-aid" *ngIf="aides.length === 0">✅ Aucune aide utilisée</span>
+  
+  <app-aides-chips [aides]="aides"></app-aides-chips>
+
+  <p class="recommencement-text" *ngIf="recommencements !== undefined">
+    🔄 Recommencements : {{ recommencements }}
+  </p>
+</div>

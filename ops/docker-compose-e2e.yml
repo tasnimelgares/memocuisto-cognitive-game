@@ -1,0 +1,43 @@
+services:
+  front :
+    image: memocuisto-front-e2e
+    build : 
+      context : ../front-end
+      dockerfile: Dockerfile
+      args: 
+        ENVIRONNEMENT: test
+    ports: 
+      - 8080:80
+    healthcheck:
+      test: ["CMD","curl","-f","http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    depends_on :
+      - back
+  back :
+    image: memocuisto-back-e2e 
+    build: ../backend 
+    command: npm run start:e2e
+    ports:
+      - 8081:9428 # L'hôte écoute sur 8081 et redirige vers le 9428 du conteneur
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9428/api/status"] 
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ../backend/database/e2e:/database/:rw
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.59.1-jammy 
+    working_dir: /app
+    volumes:
+      - ../front-end:/app 
+      - ./e2e-results/tests-results:/app/ops/e2e-results/tests-results
+      - ./e2e-results/playwright-report:/app/ops/e2e-results/playwright-report
+    command: sh -c "npm install && npm run test:e2e:docker" #prends les configs spécial docker
+    environment:
+      - TEST_URL=http://front
+    depends_on:
+      front:
+        condition: service_healthy # Attend que le front soit complètement UP et HEALTHY avant de lancer les tests

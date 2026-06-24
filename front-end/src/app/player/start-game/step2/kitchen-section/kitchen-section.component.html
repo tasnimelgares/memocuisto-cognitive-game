@@ -1,0 +1,148 @@
+<div class="global-page-wrapper">
+  
+    <app-sidebar>
+        <app-count-up-timer 
+            menu-timer
+            *ngIf="gameConfig"
+            [aideTimings]="gameConfig.timingsAides" 
+            (timeUpdated)="mettreAJourTemps($event)"
+            (aideTriggered)="gererAides($event)">
+        </app-count-up-timer>
+    </app-sidebar>
+
+
+    <div *ngIf="isEntering" class="entrance-overlay">
+      <div class="entrance-wrapper">
+        <div class="entrance-image-container">
+          <img src="assets/img/entree_maison.png" alt="De retour à la maison" class="entrance-img">
+        </div>
+        <div class="entrance-content">
+          <h2 class="entrance-title">Vous êtes de retour à la maison...</h2>
+        </div>
+      </div>
+    </div>
+
+    <app-page-title title="Étape 2 : L'Armoire à Rangement"></app-page-title>
+    
+    <div class="header-flex-container">
+        <app-instruction 
+            [text]="'Veuillez ranger les courses au bon endroit.'" 
+            phraseId="rangement">
+        </app-instruction>
+        
+        <app-encouragement-text 
+            *ngIf="feedbackMessage"
+            [text]="feedbackMessage"
+            [color]="feedbackColor"
+            [phraseId]="feedbackVoiceId"
+            [autoPlay]="encouragementAudio">
+        </app-encouragement-text>
+    </div>
+
+    <div id="hint-message" *ngIf="hintMessage">{{ hintMessage }}</div>
+    
+    <div class="kitchen-container" cdkDropListGroup>
+        <img src="/assets/img/cuisine.png" alt="Cuisine" id="kitchen-image">
+        
+        <div class="dropzone" id="frigo" 
+             [class.hover]="hoverFrais"
+             [class.highlighted]="aideFrigoHighlight" 
+             (mouseenter)="zoneEntered('frais')"
+             (mouseleave)="zoneExited('frais')"
+             cdkDropList
+             [cdkDropListData]="itemsFrais"
+             (cdkDropListDropped)="drop($event, 'frais')">
+             <ng-container *ngFor="let item of itemsFrais">
+                 <img cdkDrag [cdkDragData]="item"
+                      [src]="item.imageUrl || '/assets/img/default-ingredient.png'" 
+                      [alt]="item.name" class="stored-item">
+             </ng-container>
+        </div>
+
+        <div class="dropzone" id="congelateur" 
+             [class.hover]="hoverSurgele"
+             [class.highlighted]="aideCongelateurHighlight"
+             (mouseenter)="zoneEntered('surgele')"
+             (mouseleave)="zoneExited('surgele')"
+             cdkDropList
+             [cdkDropListData]="itemsSurgele"
+             (cdkDropListDropped)="drop($event, 'surgele')">
+             <ng-container *ngFor="let item of itemsSurgele">
+                 <img cdkDrag [cdkDragData]="item"
+                      [src]="item.imageUrl || '/assets/img/default-ingredient.png'" 
+                      [alt]="item.name" class="stored-item">
+             </ng-container>
+        </div>
+
+        <div class="dropzone" id="placard" 
+             [class.hover]="hoverSec"
+             [class.highlighted]="aidePlacardHighlight"
+             (mouseenter)="zoneEntered('sec')"
+             (mouseleave)="zoneExited('sec')"
+             cdkDropList
+             [cdkDropListData]="itemsSec"
+             (cdkDropListDropped)="drop($event, 'sec')">
+             <ng-container *ngFor="let item of itemsSec">
+                 <img cdkDrag [cdkDragData]="item"
+                      [src]="item.imageUrl || '/assets/img/default-ingredient.png'" 
+                      [alt]="item.name" class="stored-item">
+             </ng-container>
+        </div>
+
+        <div class="dropzone" id="four" 
+             [class.hover-error]="hoverInvalide"
+             (mouseenter)="zoneEntered('invalide')"
+             (mouseleave)="zoneExited('invalide')"
+             cdkDropList
+             [cdkDropListData]="itemsInvalide"
+             (cdkDropListDropped)="drop($event, 'invalide')">
+        </div>
+
+        <div class="dropzone" id="placard-bas" 
+             [class.hover-error]="hoverInvalide"
+             (mouseenter)="zoneEntered('invalide')"
+             (mouseleave)="zoneExited('invalide')"
+             cdkDropList
+             [cdkDropListData]="itemsInvalide"
+             (cdkDropListDropped)="drop($event, 'invalide')">
+        </div>
+        
+        <div id="colonne-gauche" class="dropzone" 
+             [class.hover-error]="hoverInvalide"
+             (mouseenter)="zoneEntered('invalide')"
+             (mouseleave)="zoneExited('invalide')"
+             cdkDropList
+             [cdkDropListData]="itemsInvalide"
+             (cdkDropListDropped)="drop($event, 'invalide')">
+        </div>
+
+        <div class="items-to-sort"
+             cdkDropList
+             [cdkDropListData]="itemsSurTable"
+             (cdkDropListDropped)="drop($event, 'table')">
+            
+            <ng-container *ngFor="let item of itemsSurTable">
+                <div class="draggable" 
+                     [class.highlighted]="item.highlighted"
+                     cdkDrag
+                     [cdkDragData]="item"
+                     (cdkDragStarted)="onDragStarted()"
+                     (cdkDragMoved)="onDragMoved($event)">
+                    <img [src]="item.imageUrl || '/assets/img/default-ingredient.png'" [alt]="item.name">
+                </div>
+            </ng-container>
+            
+        </div>
+    </div>
+    
+</div>
+
+<app-victory-modal 
+    *ngIf="isVictorious"
+    title="Félicitations !"
+    message="Tout est parfaitement rangé, la cuisine est prête !"
+    buttonText="Préparer la recette ➡"
+    (continueClicked)="allerALaSuite()">
+</app-victory-modal>
+
+<app-inactivity-popup></app-inactivity-popup>

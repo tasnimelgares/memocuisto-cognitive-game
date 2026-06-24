@@ -1,0 +1,27 @@
+@use 'src/styles.scss' as *;
+
+.ingredient-img {
+    width: 120px; 
+    height: 120px;
+    object-fit: contain; 
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.ingredient-name {
+    font-weight: 600;
+    font-size: $taille_texte_defaut;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: white;
+    color: #333; /* Couleur du texte pour qu'il soit bien lisible */
+    padding: 4px 12px; /* L'espace blanc autour du texte */
+    border-radius: 8px; /* Les bords arrondis */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Une petite ombre discrète */
+    width: max-content; 
+    margin: 0 auto; 
+}

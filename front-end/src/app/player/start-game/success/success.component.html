@@ -1,0 +1,47 @@
+<div class="success-wrapper">
+    
+    <div *ngFor="let star of stars" 
+         class="elegant-star"
+         [style.left]="star.left"
+         [style.animationDuration]="star.animationDuration"
+         [style.animationDelay]="star.animationDelay"
+         [style.fontSize]="star.size">
+        ⭐
+    </div>
+
+    <div class="success-card">
+        <div class="success-header">
+            <h2>Félicitations {{ patientName ? patientName + ' ' : '' }}!</h2>
+            <p class="success-subtitle">{{ feedbackMessage }}</p>
+        </div>
+
+        <img [src]="recipeImageUrl" 
+             alt="Un magnifique plat" 
+             class="success-image">
+
+        <div class="success-stats">
+            <div class="stat-item">
+                <span class="stat-icon">✅</span>
+                <span class="stat-text">Recette suivie avec succès</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">⭐</span>
+                <span class="stat-text">Un délice préparé avec soin</span>
+            </div>
+        </div>
+
+        <div class="success-actions">
+            <app-button 
+                text="↻ Préparer une autre recette" 
+                buttonColor="#6c757d" 
+                [redirectTo]=chemin> 
+            </app-button>
+
+            <app-button 
+                text="Retourner à l'accueil ➔"
+                buttonColor="#289daa"
+                redirectTo="/">
+            </app-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<app-button class="btn-retour" text="Retour" (action)="retourAccueil()" buttonColor="#95a5a6"></app-button>
+<app-button class="btn-changer-mdp" text="🔑 Changer le mot de passe" (action)="openPasswordModal()" buttonColor="#7f8c8d"></app-button>
+
+<div class="main-container">
+  
+  <div class="view-wrapper animate-fade" *ngIf="!showAddModal; else addMode">
+    <app-page-title title="Choix du Patient" (document:keydown.enter)="validerSelection()"></app-page-title>
+
+    <app-content-card>
+      <div class="header-row">
+        <h3>Cherchez un patient existant</h3>
+        <button class="add-patient-trigger" (click)="toggleAddModal()">
+          ➕ Nouveau Patient
+        </button>
+      </div>
+
+      <div class="search-row">
+        <app-patient-search 
+          (patientChosen)="onPatientSelected($event)"
+          (patientDoubleClicked)="onPatientDoubleClicked($event)">
+        </app-patient-search>
+        
+        <div class="buttons">
+          <app-button class="btn-supprimer"
+            text="Supprimer" 
+            [isDisabled]="!selectedPatient"
+            (click)="toggleDeleteModal()"
+            buttonColor="#f33737">
+          </app-button>
+
+          <app-button class="btn-suivant"
+            text="Suivant" 
+            redirectTo="/caregiver/dashboard" 
+            [isDisabled]="!selectedPatient"
+            buttonColor="#27ae60">
+          </app-button>
+        </div>
+
+      </div>
+    </app-content-card>
+  </div>
+
+  <ng-template #addMode>
+    <div class="view-wrapper animate-fade">
+      <app-page-title title="Enregistrer un nouveau patient"></app-page-title>
+      
+      <app-add-patient-modal (patientAdded)="onNewPatientSaved()"></app-add-patient-modal>
+      
+      <div class="actions-footer">
+        <app-button text="Annuler et revenir à la liste" (click)="toggleAddModal()">
+        </app-button>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<div class="modal-overlay" *ngIf="showPasswordModal" (click)="closePasswordModal()">
+  <div class="modal-content animate-fade" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closePasswordModal()">✖</button>
+      <h2>Nouveau mot de passe</h2>
+      
+      <p *ngIf="!successMessage">Définissez le nouveau mot de passe pour l'accès soignant.</p>
+      
+      <div class="password-input-group" *ngIf="!successMessage">
+          
+          <div class="input-wrapper">
+            <input 
+                [type]="isPasswordVisible ? 'text' : 'password'" 
+                [(ngModel)]="newPassword" 
+                placeholder="Nouveau mot de passe..."
+                (keydown.enter)="saveNewPassword()">
+            
+            <button class="toggle-visibility-btn" type="button" (click)="togglePasswordVisibility()" title="Afficher/Masquer">
+              
+              <svg *ngIf="!isPasswordVisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+
+              <svg *ngIf="isPasswordVisible" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+              </svg>
+
+            </button>
+          </div>
+          
+          <app-button 
+              text="Enregistrer" 
+              (action)="saveNewPassword()">
+          </app-button>
+      </div>
+
+      <p class="success-message" *ngIf="successMessage">✅ {{ successMessage }}</p>
+      <p class="error-message" *ngIf="errorMessage">❌ {{ errorMessage }}</p>
+  </div>
+</div>
+
+<app-confirmation-modal
+  *ngIf="showDeleteModal"
+  [questionText]="'Êtes-vous sûr de vouloir supprimer définitivement ce patient ?'"
+  (cancel)="toggleDeleteModal()"
+  (confirm)="confirmerSuppression()">
+</app-confirmation-modal>

@@ -1,0 +1,22 @@
+<button class="hamburger-btn" [class.hidden]="isOpen" (click)="toggleMenu()">
+    ☰
+  </button>
+  
+  <div class="sidebar-overlay-transparent" *ngIf="isOpen" (click)="toggleMenu()"></div>
+  
+  <div class="minimal-menu" [class.open]="isOpen">
+      <div class="timer-floating">
+        <button class="close-minimal" (click)="toggleMenu()">×</button>
+        
+        <ng-content select="[menu-timer]"></ng-content>
+      </div>
+  
+      <div class="action-floating">
+        <app-button 
+            text="Quitter" 
+            redirectTo="/" 
+            buttonColor="#ff4d4d"
+            class="quit-btn-small">
+        </app-button>
+      </div>
+  </div>

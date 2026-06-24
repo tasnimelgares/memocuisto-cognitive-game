@@ -1,0 +1,12 @@
+<app-content-card>
+  <app-description><strong>{{ title }} :</strong> {{ subtitle }}</app-description>
+  
+  <app-gauge [value]="value" [label]="label" [color]="color"></app-gauge>
+  
+  <app-details text="Détails & Interprétation">
+    <!-- C'est ici que le contenu spécifique à chaque indicateur sera injecté -->
+    <ng-content></ng-content>
+  </app-details>
+  
+  <app-recommendation [text]="recommendationText"></app-recommendation>
+</app-content-card>

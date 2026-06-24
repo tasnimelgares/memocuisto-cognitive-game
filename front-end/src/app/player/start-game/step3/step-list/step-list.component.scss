@@ -1,0 +1,114 @@
+/* --- HÔTE DU COMPOSANT --- */
+:host {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+/* --- LISTE DES ÉTAPES --- */
+.step-list { 
+    list-style: none; 
+    padding: 15px; 
+    flex: 1; 
+    width: 100%;
+    box-sizing: border-box;
+    background: white; 
+    border-radius: 16px; 
+    border: 3px dashed #cbd5e0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); 
+    margin: 0; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    align-content: start;
+    height: 100%; 
+}
+
+/* --- STYLES DES CARTES (STEP ITEM) --- */
+.step-item { 
+    position: relative; 
+    background: #f8f9fa; 
+    border: 2px solid #e9ecef; 
+    border-radius: 12px; 
+    padding: 15px; 
+    cursor: pointer; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    color: #495057;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, border-color 0.2s;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+    }
+
+    &.highlighted {
+        box-shadow: 0 0 15px 5px #ffc107;
+        border-color: #ffc107;
+    }
+    
+    &.selected {
+        border-color: #007bff;
+        background-color: #f0f8ff;
+    }
+}
+
+/* --- STYLES DES IMAGES --- */
+.step-image {
+    width: 120px; 
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    background-color: white;
+}
+
+.step-text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem; 
+    line-height: 1.2;
+}
+
+/* --- BADGE FLOTTANT (Ordre) --- */
+.badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px; 
+    height: 35px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: white; 
+    background-color: #007bff; 
+    border: 2px solid white;
+}
+
+/* =========================================
+   MODE LARGE (Accessibilité Visuelle) 
+   ========================================= */
+:host-context(.large-mode) {
+    .step-text { font-size: 1.4rem; }
+    
+    .step-image { 
+        width: 150px; 
+        height: 150px; 
+    }
+    
+    .badge { 
+        width: 45px; 
+        height: 45px; 
+        font-size: 1.5rem; 
+        top: -15px;
+        left: -15px;
+    }
+}

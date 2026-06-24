@@ -1,0 +1,14 @@
+.card {
+    background-color: white; // Immuable
+    border-radius: 20px;    // Coins bien arrondis pour le côté doux
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); // Ombre légère pour décoller du fond
+    
+    width: 90%;             
+          
+    margin: 0 auto;         // Centre la carte horizontalement
+    
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

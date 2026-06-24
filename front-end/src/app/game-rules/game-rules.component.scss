@@ -1,0 +1,109 @@
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #app {
+    position: relative; // Important pour que le bouton absolu se place par rapport à ce cadre
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* pour le bouton en haut à gauche */
+  .action-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100; // Pour passer au-dessus du fond et du titre
+  }
+  
+  .rules-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 15px 100px 15px; 
+    gap: 20px; 
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  .rules-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 650px; 
+    width: 100%;
+    
+    max-height: calc(100vh - 260px); 
+    overflow-y: auto; 
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left; 
+  
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #e0e0e0;
+      border-radius: 4px;
+    }
+  
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 26px;
+      text-align: center; 
+    }
+  
+    hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 25px 0;
+    }
+  
+    h3 {
+      color: #ff9800; 
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    p:first-of-type{
+      text-align: center;
+    }
+  
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 10px;
+    }
+  
+    ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+      
+      li {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #555;
+        margin-bottom: 8px;
+  
+        strong {
+          color: #17a2b8; 
+        }
+      }
+    }
+  
+    .encouragement {
+      text-align: center;
+      font-weight: bold;
+      color: #4caf50; 
+      margin-top: 25px;
+    }
+  }

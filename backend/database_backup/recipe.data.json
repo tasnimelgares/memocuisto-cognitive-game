@@ -1,0 +1,368 @@
+[
+  {
+    "id": 1,
+    "name": "Gâteau au chocolat",
+    "category": "dessert",
+    "ingredientsIds": [
+      1,
+      2,
+      3,
+      5,
+      46
+    ],
+    "imageUrl": "/assets/img/recipes/gateau-au-chocolat.png",
+    "steps": [
+      {
+        "id": 2,
+        "order": 1,
+        "text": "Faire fondre le chocolat",
+        "imgPath": "/assets/img/steps/fondrechoco.png"
+      },
+      {
+        "id": 1,
+        "order": 1,
+        "text": "Préchauffer le four",
+        "imgPath": "/assets/img/steps/prechaufferfour.png"
+      },
+      {
+        "id": 4,
+        "order": 3,
+        "text": "Mettre au four",
+        "imgPath": "/assets/img/steps/mettreaufour.png"
+      },
+      {
+        "id": 3,
+        "order": 2,
+        "text": "Casser et ajouter les œufs",
+        "imgPath": "/assets/img/steps/casseroeufs.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Pancakes",
+    "category": "dessert",
+    "ingredientsIds": [
+      1,
+      2,
+      4,
+      3
+    ],
+    "imageUrl": "/assets/img/recipes/pancakes.png",
+    "steps": [
+      {
+        "id": 6,
+        "order": 2,
+        "text": "Ajouter œufs et lait",
+        "imgPath": "/assets/img/steps/ajouteroeufslait.png"
+      },
+      {
+        "id": 7,
+        "order": 3,
+        "text": "Laisser reposer la pâte",
+        "imgPath": "/assets/img/steps/reposerpate.png"
+      },
+      {
+        "id": 8,
+        "order": 4,
+        "text": "Cuire à la poêle",
+        "imgPath": "/assets/img/steps/cuirepoele.png"
+      },
+      {
+        "id": 5,
+        "order": 1,
+        "text": "Mélanger farine et sucre",
+        "imgPath": "/assets/img/steps/melangersecs.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Café au lait",
+    "category": "boisson",
+    "ingredientsIds": [
+      6,
+      3,
+      4
+    ],
+    "imageUrl": "/assets/img/recipes/cafe-au-lait.png",
+    "steps": [
+      {
+        "id": 11,
+        "order": 2,
+        "text": "Verser le lait dans le café",
+        "imgPath": "/assets/img/steps/verserlait.png"
+      },
+      {
+        "id": 9,
+        "order": 1,
+        "text": "Faire couler un expresso",
+        "imgPath": "/assets/img/steps/fairecafe.png"
+      },
+      {
+        "id": 12,
+        "order": 3,
+        "text": "Remuer doucement",
+        "imgPath": "/assets/img/steps/melangercafe.png"
+      },
+      {
+        "id": 10,
+        "order": 1,
+        "text": "Faire chauffer le lait",
+        "imgPath": "/assets/img/steps/chaufferlait.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Limonade",
+    "category": "boisson",
+    "ingredientsIds": [
+      7,
+      8,
+      3,
+      110
+    ],
+    "imageUrl": "/assets/img/recipes/limonade.png",
+    "steps": [
+      {
+        "id": 14,
+        "order": 2,
+        "text": "Ajouter eau et sucre",
+        "imgPath": "/assets/img/steps/melangereau.png"
+      },
+      {
+        "id": 15,
+        "order": 3,
+        "text": "Mélanger le tout",
+        "imgPath": "/assets/img/steps/melangerlimonade.png"
+      },
+      {
+        "id": 16,
+        "order": 3,
+        "text": "Ajouter des glaçons",
+        "imgPath": "/assets/img/steps/ajouterglacons.png"
+      },
+      {
+        "id": 13,
+        "order": 1,
+        "text": "Presser les citrons",
+        "imgPath": "/assets/img/steps/pressercitrons.png"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Burger",
+    "category": "plat",
+    "ingredientsIds": [
+      9,
+      [
+        10,
+        113
+      ],
+      11,
+      12,
+      111
+    ],
+    "imageUrl": "/assets/img/recipes/burger.png",
+    "steps": [
+      {
+        "id": 19,
+        "order": 2,
+        "text": "Ajouter légumes et sauce",
+        "imgPath": "/assets/img/steps/ajoutlegumes.png"
+      },
+      {
+        "id": 20,
+        "order": 3,
+        "text": "Monter le burger",
+        "imgPath": "/assets/img/steps/monterburger.png"
+      },
+      {
+        "id": 17,
+        "order": 1,
+        "text": "Cuire le steak",
+        "imgPath": "/assets/img/steps/cuiresteak.png"
+      },
+      {
+        "id": 18,
+        "order": 1,
+        "text": "Toaster le pain",
+        "imgPath": "/assets/img/steps/toasterpain.png"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Pâtes à la bolognaise",
+    "category": "plat",
+    "ingredientsIds": [
+      13,
+      14,
+      50,
+      [
+        10,
+        113
+      ]
+    ],
+    "imageUrl": "/assets/img/recipes/pates-a-la-bolognaise.png",
+    "steps": [
+      {
+        "id": 21,
+        "order": 1,
+        "text": "Faire bouillir l’eau et cuire les pâtes",
+        "imgPath": "/assets/img/steps/cuirepates.png"
+      },
+      {
+        "id": 24,
+        "order": 3,
+        "text": "Servir chaud",
+        "imgPath": "/assets/img/steps/servir.png"
+      },
+      {
+        "id": 22,
+        "order": 1,
+        "text": "Préparer la sauce bolognaise",
+        "imgPath": "/assets/img/steps/preparersauce.png"
+      },
+      {
+        "id": 23,
+        "order": 2,
+        "text": "Mélanger pâtes et sauce",
+        "imgPath": "/assets/img/steps/melangerpates.png"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Gratin de légumes",
+    "category": "plat",
+    "ingredientsIds": [
+      22,
+      23,
+      18,
+      12,
+      17,
+      55,
+      15
+    ],
+    "imageUrl": "/assets/img/recipes/gratin-de-legumes.png",
+    "steps": [
+      {
+        "id": 28,
+        "order": 3,
+        "text": "Disposer les légumes",
+        "imgPath": "/assets/img/steps/disposer-legumes.png"
+      },
+      {
+        "id": 25,
+        "order": 1,
+        "text": "Couper en rondelles les courgettes, aubergines et tomates",
+        "imgPath": "/assets/img/steps/laver-couper-legumes.png"
+      },
+      {
+        "id": 31,
+        "order": 5,
+        "text": "Enfourner à 190°C",
+        "imgPath": "/assets/img/steps/enfourner.png"
+      },
+      {
+        "id": 26,
+        "order": 1,
+        "text": "Faire revenir l'oignon",
+        "imgPath": "/assets/img/steps/revenir-oignons.png"
+      },
+      {
+        "id": 32,
+        "order": 6,
+        "text": "Laisser reposer et servir",
+        "imgPath": "/assets/img/steps/reposer-servir.png"
+      },
+      {
+        "id": 27,
+        "order": 2,
+        "text": "Ajouter l'ail haché",
+        "imgPath": "/assets/img/steps/ail-hache.png"
+      },
+      {
+        "id": 30,
+        "order": 4,
+        "text": "Parsemer de gruyère",
+        "imgPath": "/assets/img/steps/parsemer-gruyere.png"
+      },
+      {
+        "id": 29,
+        "order": 4,
+        "text": "Arroser d'un filet d'huile d'olive",
+        "imgPath": "/assets/img/steps/filet-huile.png"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Tiramisu",
+    "category": "dessert",
+    "ingredientsIds": [
+      51,
+      2,
+      3,
+      6,
+      112,
+      66,
+      54,
+      71
+    ],
+    "imageUrl": "/assets/img/recipes/tiramisu.png",
+    "steps": [
+      {
+        "id": 37,
+        "order": 5,
+        "text": "Trempez les biscuits à la cuillère dans le café.",
+        "imgPath": "/assets/img/steps/tremper-biscuits.png"
+      },
+      {
+        "id": 33,
+        "order": 1,
+        "text": "Séparez les blancs des jaunes d'œufs. Fouettez les jaunes avec le sucre.",
+        "imgPath": "/assets/img/steps/separer-blanc-jaune.png"
+      },
+      {
+        "id": 40,
+        "order": 8,
+        "text": "Saupoudrez de cacao en poudre, puis réservez au réfrigérateur.",
+        "imgPath": "/assets/img/steps/saupoudrer-cacao.png"
+      },
+      {
+        "id": 35,
+        "order": 3,
+        "text": "Montez les blancs en neige.",
+        "imgPath": "/assets/img/steps/monter-blanc.png"
+      },
+      {
+        "id": 39,
+        "order": 7,
+        "text": "Faites une deuxième couche de biscuits imbibés puis le reste de la crème.",
+        "imgPath": "/assets/img/steps/disposer-couches.png"
+      },
+      {
+        "id": 34,
+        "order": 2,
+        "text": "Ajoutez le mascarpone et mélangez délicatement.",
+        "imgPath": "/assets/img/steps/ajouter-mascarpone.png"
+      },
+      {
+        "id": 38,
+        "order": 6,
+        "text": "Disposez une première couche de biscuits imbibés et recouvrez de crème.",
+        "imgPath": "/assets/img/steps/disposer-biscuits.png"
+      },
+      {
+        "id": 36,
+        "order": 4,
+        "text": "Incorporez délicatement les blancs en neige au mélange.",
+        "imgPath": "/assets/img/steps/incorporer-blanc.png"
+      }
+    ]
+  }
+]

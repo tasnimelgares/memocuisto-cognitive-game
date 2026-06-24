@@ -1,0 +1,61 @@
+<app-content-card class="container">
+    <form [formGroup]="ingredientForm" class="form" (ngSubmit)="$event.preventDefault()">
+        <div class="form-header">
+            <div class="header-top">
+                <h4>➕ Vous ne trouvez pas un ingrédient ? Ajoutez-le !</h4>
+                <button type="button" *ngIf="closeButton" class="btn-close" (click)="onClose()">✖</button>
+            </div>
+            <p>Cela créera l'ingrédient que vous pourrez ensuite sélectionner dans la liste d'ingrédients.</p>
+        </div>
+
+        <app-form-field 
+            #nameField
+            label="Nom du produit :" 
+            placeholder="Ex: Lait de soja"
+            [control]="ingredientForm.get('name')"
+            errorMsg="Le nom de l'ingrédient est requis.">
+        </app-form-field>
+
+        <label>Image (PNG) : 
+            <input #ingredientFileInput type="file" (change)="onFileSelected($event)" accept="image/png">
+        </label>
+
+        <div *ngIf="imageIngredientPreview" class="preview">
+            <img [src]="imageIngredientPreview" [alt]="ingredientForm.get('name')?.value">
+            <b>{{ ingredientForm.get('name')?.value || 'Nom...' }}</b>
+        </div>
+
+        <app-form-field 
+            #rayonField
+            label="Dans quel rayon le ranger ?" 
+            [control]="ingredientForm.get('rayonId')"
+            defaultOption="Choisissez un rayon"
+            [options]="rayons"
+            valueKey="id"
+            labelKey="label"
+            errorMsg="Veuillez choisir un rayon.">
+        </app-form-field>
+
+        <app-form-field 
+            #rangementField
+            label="Où rangez-vous ceci chez vous ?" 
+            [control]="ingredientForm.get('rangementId')"
+            defaultOption="Choisissez un rangement"
+            [options]="rangementMaison"
+            valueKey="id"
+            labelKey="label"
+            errorMsg="Veuillez choisir un rangement à la maison.">
+        </app-form-field>
+
+        <p *ngIf="feedbackMessageIngredient" [style.color]="isErrorIngredient ? '#e74c3c' : '#27ae60'">
+            <b>{{ feedbackMessageIngredient }}</b>
+        </p>
+
+        <app-button 
+            text="Ajouter au supermarché" 
+            buttonColor="#17a2b8" 
+            [attr.disabled]="ingredientForm.invalid ? true : null"
+            (action)="onSubmit()">
+        </app-button>
+    </form>
+</app-content-card>

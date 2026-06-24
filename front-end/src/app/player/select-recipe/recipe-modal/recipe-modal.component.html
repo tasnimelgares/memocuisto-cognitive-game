@@ -1,0 +1,18 @@
+<div class="recipe-modal">
+        <div class="scroll-container">
+            <p>-- {{ category | titlecase }}s --</p>
+            <div class="recipe-list">
+                <ng-container *ngIf="recipes$ | async as list; else loading">
+                    <app-recipe-card 
+                    *ngFor="let recipe of list" 
+                    [recipe]="recipe"
+                    (click)="selectRecipe(recipe)">
+                    </app-recipe-card>
+                    <p *ngIf="list.length === 0">Aucune recette pour le moment.</p>
+                </ng-container>
+                <ng-template #loading>
+                    <p>Chargement des recettes...</p>
+                </ng-template>
+            </div>
+        </div>
+</div>

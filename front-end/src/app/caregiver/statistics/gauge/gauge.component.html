@@ -1,0 +1,9 @@
+<div class="gauge-wrapper">
+  <div class="gauge-bar">
+    <div class="fill" [ngClass]="color" [style.width.%]="value"></div>
+  </div>
+  <div class="gauge-info">
+    <span class="valeur">{{ value }}%</span>
+    <span class="label">{{ label }}</span>
+  </div>
+</div>

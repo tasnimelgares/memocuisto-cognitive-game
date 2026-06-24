@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "patientId": 1,
+    "date": "10 mai",
+    "texte": "Jean était dynamique aujourd'hui."
+  },
+  {
+    "id": 2,
+    "patientId": 1,
+    "date": "11 mai",
+    "texte": "Un peu de fatigue vers la fin de jeu, mais Jean est resté concentré."
+  },
+  {
+    "id": 3,
+    "patientId": 2,
+    "date": "12 mai",
+    "texte": "Très bonne session pour Caroline, malgré une baisse de concentration vers la fin."
+  }
+]

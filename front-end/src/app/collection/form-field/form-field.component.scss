@@ -1,0 +1,31 @@
+@use 'src/styles.scss' as *;
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: $police_bleu_fonce;
+}
+
+input[type="text"], input[type="number"], select {
+  padding: 0.8rem;
+  border: 2px solid $input_border_gris_clair;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  outline: none;
+  &:focus { border-color: --main-bg; }
+}
+
+input[type="file"] { padding: 5px 0; }
+
+small {
+    color: red;
+    font-weight: bold;
+}

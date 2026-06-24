@@ -1,0 +1,132 @@
+<app-description>
+  🔊 Paramètres vocaux et sonores
+</app-description>
+
+<div class="voice-settings-page">
+
+  <!-- ACTIVATION -->
+  <section class="settings-card">
+    <div class="top-row">
+      <div>
+        <h2>Mode malvoyant</h2>
+        <p>Active les consignes vocales et l’assistance audio automatique pendant le jeu.</p>
+      </div>
+      <button
+        class="toggle-btn"
+        [class.active]="modeMalvoyant"
+        (click)="toggleModeMalvoyant()">
+        <span class="toggle-dot"></span>
+        {{ modeMalvoyant ? 'Activé' : 'Désactivé' }}
+      </button>
+    </div>
+  </section>
+
+  <!-- TOUT LE CONTENU CI-DESSOUS APPARAÎT UNIQUEMENT SI ACTIVÉ -->
+  <ng-container *ngIf="modeMalvoyant">
+
+    <!-- CHOIX VOIX -->
+    <section class="settings-card">
+      <div class="section-header">
+        <h2>Choix de la voix</h2>
+        <p>Sélectionnez la voix utilisée pour guider le joueur.</p>
+      </div>
+
+      <div class="voice-grid">
+        <!-- Féminine -->
+        <button
+          class="voice-card"
+          [class.active]="selectedVoice === 'feminine' && !useCustomVoice"
+          (click)="selectVoice('feminine')">
+          <div class="voice-content">
+            <h3>Voix féminine</h3>
+            <span>Voix douce et claire</span>
+          </div>
+        </button>
+
+        <!-- Masculine -->
+        <button
+          class="voice-card"
+          [class.active]="selectedVoice === 'masculine' && !useCustomVoice"
+          (click)="selectVoice('masculine')">
+          <div class="voice-content">
+            <h3>Voix masculine</h3>
+            <span>Voix grave et posée</span>
+          </div>
+        </button>
+
+        <!-- Proche -->
+        <button
+          class="voice-card"
+          [class.active]="useCustomVoice"
+          (click)="selectCustomVoice()">
+          <div class="voice-content">
+            <h3>Voix d’un proche</h3>
+            <span>Utilisez votre voix pour les consignes et retours dans le jeu.</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION ENREGISTREMENTS (VISIBLE UNIQUEMENT SI VOIX D'UN PROCHE EST SÉLECTIONNÉ) -->
+    <section class="settings-card record-card" *ngIf="useCustomVoice">
+      
+      <div class="section-header">
+        <h2>🎙️ Pistes vocales personnalisées</h2>
+        <p>Enregistrez votre voix pour les différentes pistes ci-dessous, vous êtes libre de choisir vos propres mots.</p>
+      </div>
+
+      <!-- LISTE DES PISTES DÉJÀ ENREGISTRÉES -->
+      <div class="recorded-list" *ngIf="recordedPhrases.length > 0">
+        <h3>✅ Consignes enregistrées :</h3>
+        <div class="phrase-item" *ngFor="let phrase of recordedPhrases">
+          <div class="phrase-info">
+            <span class="phrase-label">{{ phrase.label }}</span>
+            <span class="phrase-text">{{ phrase.texte }}</span>
+          </div>
+          <div class="audio-actions">
+            <button class="play-btn" (click)="playAudio(phrase)">▶️ Écouter</button>
+            <button class="delete-btn" (click)="deleteRecording(phrase)" title="Supprimer">🗑️</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="empty-state" *ngIf="recordedPhrases.length === 0">
+        <p>Aucune piste vocale enregistrée pour le moment.</p>
+      </div>
+
+      <hr class="separator" *ngIf="unrecordedPhrases.length > 0">
+
+      <!-- BOUTON POUR DÉROULER LES NOUVEAUX ENREGISTREMENTS -->
+      <button 
+        class="toggle-record-form-btn" 
+        *ngIf="unrecordedPhrases.length > 0"
+        (click)="showNewRecordingForm = !showNewRecordingForm">
+        {{ showNewRecordingForm ? 'Masquer les consignes' : '➕ Enregistrer une nouvelle consigne' }}
+      </button>
+
+      <p class="all-done" *ngIf="unrecordedPhrases.length === 0">
+        🎉 Toutes les consignes du jeu ont été enregistrées !
+      </p>
+
+      <!-- LISTE DES PHRASES RESTANTES À ENREGISTRER -->
+      <div class="new-recordings-section" *ngIf="showNewRecordingForm && unrecordedPhrases.length > 0">
+        <div class="phrase-item" *ngFor="let phrase of unrecordedPhrases">
+          <div class="phrase-info">
+            <span class="phrase-label">{{ phrase.label }}</span>
+            <span class="phrase-text">{{ phrase.texte }}</span>
+          </div>
+          <button
+            class="record-btn"
+            [class.recording]="phrase.recording"
+            (click)="toggleRecording(phrase)">
+            <span class="spinner" *ngIf="phrase.recording"></span>
+            {{ phrase.recording ? 'Stopper' : '🔴 Enregistrer' }}
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+  </ng-container>
+
+</div>

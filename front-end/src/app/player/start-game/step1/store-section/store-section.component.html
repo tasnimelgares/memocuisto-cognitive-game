@@ -1,0 +1,58 @@
+<div class="global-page-wrapper">
+
+    <app-sidebar>
+      <app-count-up-timer 
+          menu-timer
+          [startTime]="tempsEcouleTotal"
+          [aideTimings]="timingsAides" 
+          (timeUpdated)="mettreAJourTemps($event)"
+          (aideTriggered)="gererAides($event)">
+      </app-count-up-timer>
+    </app-sidebar>
+  
+    <app-button 
+        text="↩ Retour au plan" 
+        redirectTo="/map"
+        class="btn-back-fixed"> 
+    </app-button>
+  
+    <app-inventory [currentRecipe]="currentRecipe"></app-inventory>
+  
+    <app-page-title title=" Étape 1 : Les Courses "></app-page-title>
+    
+    <app-instruction 
+        [text]=" 'Vous êtes dans le supermarché. Veuillez sélectionner les ingrédients mémorisés.'"
+        phraseId="supermarche">
+    </app-instruction>
+  
+    <app-encouragement-text 
+        *ngIf="feedbackMessage !== ''" 
+        [text]="feedbackMessage" 
+        [color]="feedbackColor"
+        [phraseId]="feedbackVoiceId"
+        [autoPlay]="encouragementAudio">
+    </app-encouragement-text>
+  
+    <div class="shelves-container">
+        <div class="shelf-slot" *ngFor="let item of ingredientsSurEtagere" 
+             [class.highlight]="idsEnSurbrillance.includes(item.id)"
+             [class.found]="item.selected"
+             (click)="selectItem(item, false)">
+             
+            <div class="item-wrapper">
+                <app-ingredient-card [ingredient]="item"></app-ingredient-card>
+            </div>
+
+            <div class="shelf-board"></div>
+        </div>
+    </div>
+  
+</div>
+
+<app-victory-modal 
+    *ngIf="isVictorious"
+    title="Félicitations !"
+    message="Votre caddie est plein, vous avez trouvé tous les ingrédients !"
+    buttonText="Aller à la cuisine"
+    (continueClicked)="allerEnCuisine()">
+</app-victory-modal>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MémoCuisto - Rayon du Supermarché</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="stylesheet" href="../global.css">
+    <script src="aisle.js" defer></script>
+    <script src="../theme.js" defer></script>
+    <script src="timer.js" defer></script>
+</head>
+<body>
+    <h1>Étape 1 : Les Courses</h1>
+<h3>Nous sommes dans le supermarché 🛒, cliquez sur les ingrédients mémorisés !</h3>
+<div id="feedback"></div>
+    <div id="supermarket-container">
+        <img src="../images/supermarche.png" alt="Rayon de supermarché" id="supermarket-image">
+        
+        <div class="item hotspot" id="hotspot-flour" data-target="true"></div>
+        <div class="item hotspot" id="hotspot-chocolate" data-target="true"></div>
+        <div class="item hotspot" id="hotspot-eggs" data-target="true"></div>
+        <div class="item hotspot" id="hotspot-eggs-top" data-target="true"></div>
+    </div>
+    <a href="kitchen.html" class="btn-next" id="next-btn" style="display: none;">Aller à la cuisine ➔</a>
+
+    <footer>
+        <p>2026 MémoCuisto - Projet de stimulation cognitive</p>
+    </footer>
+</body>
+</html>

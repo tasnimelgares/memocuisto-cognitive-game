@@ -1,0 +1,89 @@
+<div class="help-toggle">
+  <div>
+    <h2>💡 Aides</h2>
+    <p>Activation des indices pendant le jeu. </p>
+  </div>
+
+  <button
+    class="toggle-btn"
+    [class.active]="helpEnabled"
+    (click)="toggleHelp()">
+
+    <span class="toggle-dot"></span>
+    {{ helpEnabled ? 'Activé' : 'Désactivé' }}
+  </button>
+</div>
+
+<div class="settings-wrapper" *ngIf="helpEnabled">
+
+  <h2 class="settings-title">⏱️ Déclenchement des Aides</h2>
+  <p class="settings-subtitle">
+    Veuillez définir le temps avant l'apparition de chaque indice.
+    <br>(Par exemple : 25s - 45s - 60s - 75s)
+  </p>
+
+  <div class="slider-group">
+    <div class="label-row">
+      <label>1. Aide Simple </label>
+      <span class="time-badge">{{ aideSimple }} s</span>
+    </div>
+    <input
+      type="range"
+      min="0"
+      [max]="MAX_TIME"
+      step="5"
+      [(ngModel)]="aideSimple"
+      (ngModelChange)="updateTimings()"
+      class="slider"
+      [style.background]="getBackground(aideSimple, 5)">
+  </div>
+
+  <div class="slider-group">
+    <div class="label-row">
+      <label>2. Aide Moyenne </label>
+      <span class="time-badge">{{ aideMoyenne }} s</span>
+    </div>
+    <input
+      type="range"
+      min="0"
+      [max]="MAX_TIME"
+      step="5"
+      [(ngModel)]="aideMoyenne"
+      (ngModelChange)="updateTimings()"
+      class="slider"
+      [style.background]="getBackground(aideMoyenne, aideSimple + STEP)">
+  </div>
+
+  <div class="slider-group">
+    <div class="label-row">
+      <label>3. Aide Forte</label>
+      <span class="time-badge">{{ aideForte }} s</span>
+    </div>
+    <input
+      type="range"
+      min="0"
+      [max]="MAX_TIME"
+      step="5"
+      [(ngModel)]="aideForte"
+      (ngModelChange)="updateTimings()"
+      class="slider"
+      [style.background]="getBackground(aideForte, aideMoyenne + STEP)">
+  </div>
+
+  <div class="slider-group">
+    <div class="label-row">
+      <label>4. Aide Complète</label>
+      <span class="time-badge">{{ aideComplete }} s</span>
+    </div>
+    <input
+      type="range"
+      min="0"
+      [max]="MAX_TIME"
+      step="5"
+      [(ngModel)]="aideComplete"
+      (ngModelChange)="updateTimings()"
+      class="slider"
+      [style.background]="getBackground(aideComplete, aideForte + STEP)">
+  </div>
+
+</div>

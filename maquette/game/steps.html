@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>MémoCuisto - La Recette</title>
+        <link rel="stylesheet" href="./stylesheet.css">
+        <link rel="stylesheet" href="../global.css">
+        <script type="module" src="../components/homepagereturnbutton/homepage-return-button.js" defer></script>
+        <script src="timer.js" defer></script>
+        <script src="../theme.js" defer></script>
+        <script src="steps.js" defer></script>
+    </head>
+    <body>
+
+        <h1>Étape 3 : Gâteau au Chocolat</h1>
+        <p class="instruction">Cliquez sur les étapes dans l'ordre de la recette (de 1 à 4).</p>
+        
+        <div class="recipe-game-container">
+            <div class="column">
+                <h3>Étapes mélangées</h3>
+                <ul class="step-list" id="available-steps">
+                    <li class="step-item" data-order="3"><span class="badge"></span> Casser les œufs</li>
+                    <li class="step-item" data-order="1"><span class="badge"></span> Préchauffer le four</li>
+                    <li class="step-item" data-order="4"><span class="badge"></span> Mettre au four</li>
+                    <li class="step-item" data-order="2"><span class="badge"></span> Faire fondre le chocolat</li>
+                </ul>
+            </div>
+        
+            <div class="column">
+                <h3>Ma Recette (Ordre)</h3>
+                <ul class="step-list" id="player-recipe">
+                    </ul>
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button id="reset-btn">Recommencer</button>
+            <button id="check-btn">Vérifier ma recette</button>
+        </div>
+        
+        <div id="feedback"></div>
+
+        <div id="retour-container" style="display:none; margin-top:20px;">
+            <homepage-return-button></homepage-return-button>
+        </div>
+        
+        <footer>
+            <p>2026 MémoCuisto - Projet de stimulation cognitive</p>
+        </footer>
+    </body>
+</html>

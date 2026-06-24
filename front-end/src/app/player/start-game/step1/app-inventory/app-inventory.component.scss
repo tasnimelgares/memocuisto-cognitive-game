@@ -1,0 +1,150 @@
+/* Le Wrapper : c'est lui qui définit si on voit le contenu ou pas */
+.inventory-wrapper {
+  display: grid;
+  grid-template-rows: 0fr; 
+  transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+
+  &.is-open {
+    grid-template-rows: 1fr; 
+  }
+}
+
+/* Le Container : il contient le contenu réel */
+.inventory-container {
+  min-height: 0; 
+  opacity: 0;
+  transform: translateY(-20px); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  background: #fffdf6;
+  border-radius: 16px;
+  border: 2px solid #e6dcc5;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+
+  // Quand le parent est ouvert, on anime l'opacité
+  .is-open & {
+    opacity: 1;
+    transform: translateY(0);
+    padding-top: 25px;
+  }
+}
+
+/* Style du bouton pour accompagner l'animation */
+.shopping-note-trigger {
+  position: relative;
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  margin: auto;
+  margin-top : 10px;
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  &:hover {
+    transform: rotate(-5deg) scale(1.35);
+  }
+
+  &.open {
+    transform: scale(0.95);
+  }
+}
+.shopping-note-open {
+  width: 180px;
+  margin: auto;
+  padding: 12px;
+  margin : 10px;
+  background: #de8962;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* --- LE RAPPEL MINI --- */
+.recipe-reminder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 12px; 
+  background: #f8f9fa; 
+  border-radius: 10px;
+
+  .reminder-text {
+    font-size: 1rem; 
+    font-weight: 700;
+    color: #95a5a6;
+    text-transform: uppercase;
+     margin-bottom: 10px;
+  }
+
+  .recipe-mini-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    .mini-img {
+      width: 75px; 
+      height: 75px;
+      object-fit: contain;
+    }
+
+    .mini-name {
+      font-size: 1.2rem; 
+      font-weight: 700;
+      color: #2c3e50;
+      margin-top: 8px;
+       max-width: 120px;
+      line-height: 1.2;
+    }
+  }
+}
+
+
+.inventory-title {
+  margin-top: 0;
+  margin-bottom: 20px; 
+  padding : 10px;
+  font-size: 1.5rem; 
+  color: #7f8c8d;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 8px;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  padding : 10px;
+  gap: 16px; 
+}
+
+.ingredient-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.4rem; 
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &.is-found {
+    color: #27ae60;
+    opacity: 0.6;
+    .ingredient-name {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.check-icon {
+  font-size: 1.8rem; 
+}

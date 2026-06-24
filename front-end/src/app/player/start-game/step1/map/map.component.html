@@ -1,0 +1,127 @@
+<div class="global-page-wrapper">
+
+  <app-sidebar>
+    <app-count-up-timer 
+        menu-timer
+        [startTime]="tempsEcouleTotal"
+        [aideTimings]="timingsAides" 
+        (timeUpdated)="mettreAJourTemps($event)"
+        (aideTriggered)="gererAides($event)">
+    </app-count-up-timer>
+  </app-sidebar>
+
+  <div *ngIf="isEntering" class="entrance-overlay">
+  <div class="entrance-wrapper">
+    <div class="entrance-image-container">
+      <img src="assets/img/entree_supermarche.png" alt="Bienvenue au supermarché" class="entrance-img">
+    </div>
+    <div class="entrance-content">
+      <h2 class="entrance-title">Vous êtes au supermarché...</h2>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="inventory-top-right">
+    <app-inventory [currentRecipe]="currentRecipe"></app-inventory>
+  </div>
+
+  <div class="main-content">
+    <app-page-title title="Plan du Supermarché"></app-page-title>
+    <app-instruction [text]="'Dans quel rayon se trouvent vos ingrédients ? Cliquez dessus !'"
+    phraseId="rayon" [autoPlay]="isFirstVisit" [delay]="3000"></app-instruction>
+    <app-button
+    *ngIf="showNextButton"
+    text="Aller à la cuisine ➔"
+    redirectTo="/step2"
+    class="btn-next-fixed"
+    [isLarge]="true">
+  </app-button>
+
+    <div class="detailed-plan-container">
+      <img src="assets/img/rayons/fond_supermarche.png" alt="Plan détaillé du supermarché" class="detailed-plan-img">
+
+      <app-zone
+        name="Rayon Frais"
+        zoneId="frais"
+        image="assets/img/rayons/produits-frais.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('frais')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-frais"
+        style="top: 25%; left: 22%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Épicerie"
+        zoneId="epicerie"
+        image="assets/img/rayons/epicerie.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('epicerie')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-epicerie"
+       style="top: 50%; left: 35%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Fruits & Légumes"
+        zoneId="fruit-legume"
+        image="assets/img/rayons/fruits-legumes.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('fruit-legume')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-fruit-legume"
+        style="top: 25%; left: 48%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Surgelés"
+        zoneId="surgele"
+        image="assets/img/rayons/surgeles.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('surgele')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-surgele"
+        style="top: 15%; left: 80%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Boissons"
+        zoneId="boissons"
+        image="assets/img/rayons/boissons.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('boissons')"
+        (zoneClicked)="allerAuRayon($event)"
+       class="map-marker-zone marker-boissons"
+        style="top: 70%; left: 17%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Boucherie & Poissonnerie"
+        zoneId="boucherie-poissonnerie"
+        image="assets/img/rayons/boucherie-poissonnerie.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('boucherie-poissonnerie')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-boucherie-poissonnerie"
+        style="top: 45%; left: 80%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Boulangerie"
+        zoneId="boulangerie"
+        image="assets/img/rayons/boulangerie.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('boulangerie')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-boulangerie"
+        style="top: 70%; left: 75%;">
+      </app-zone>
+
+      <app-zone
+        name="Rayon Épices"
+        zoneId="epices"
+        image="assets/img/rayons/epices.png"
+        [isHighlighted]="rayonsEnSurbrillance.includes('epices')"
+        (zoneClicked)="allerAuRayon($event)"
+        class="map-marker-zone marker-epices"
+        style="top: 45%; left: 60%;">
+      </app-zone>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="search-container">
+  <input 
+    type="text" 
+    class="search-bar" 
+    placeholder="Rechercher un patient..."
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearchChange()"
+    (keydown.enter)="selectFirstPatient()"> 
+
+  <div class="patient-list">
+    <button 
+      *ngFor="let patient of filteredPatients" 
+      class="patient-item"
+      [class.selected]="patient === selectedPatient"
+      (click)="selectPatient(patient)"
+      (dblclick)="onDoubleClick(patient)"> <div class="patient-info">
+        <img 
+          [src]="patient.imageUrl" 
+          (error)="handleImgError($event)" 
+          class="patient-avatar"
+          alt="">
+        <span class="patient-name">{{ patient.firstName }} {{ patient.lastName }}</span>
+      </div>
+      
+    </button>
+  </div>
+</div>
