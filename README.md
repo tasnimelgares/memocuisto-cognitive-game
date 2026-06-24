@@ -4,6 +4,11 @@
 
 Conçue pour être utilisée en autonomie ou en duo avec un aidant familial, l'application transforme le suivi médical en un véritable moment d'échange. Une interface "Espace Soignant" dédiée permet aux professionnels de personnaliser l'accompagnement et de suivre l'évolution du patient.
 
+
+![Page d'accueil de MémoCuisto](homepage.png)
+
+*Interface principale de l'application permettant d'accéder aux différents modes de jeu et à l'espace soignant.*
+
 ---
 
 ## Structure du Projet
