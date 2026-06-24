@@ -15,7 +15,7 @@ Conçue pour être utilisée en autonomie ou en duo avec un aidant familial, l'a
 
 Le dépôt est organisé de manière claire pour séparer les différents environnements :
 
-* **`frontend/`** : C'est le cœur du jeu. Il contient tout ce qui est visuel et interactif (le code HTML, SCSS et JS).
+* **`frontend/`** : C'est le cœur du jeu. Il contient tout ce qui est visuel et interactif (le code HTML, SCSS et TS).
 * **`backend/`** : Le code serveur développé avec Express.js, qui s'occupe de gérer la logique et les données.
 * **`ops/`** : L'infrastructure (DevOps). On y trouve nos fichiers Docker (compose.yml et compose-e2e.yml) ainsi que nos scripts d'exécution (run.sh et run-e2e.sh) pour lancer le projet et les tests facilement.
 * **`maquette/`** : La maquette basse fidélité (HTML/CSS/JS) réalisée au tout début du projet. Elle nous a permis de faire une démonstration directement aux soignantes pour être certains de bien comprendre leurs vrais besoins.
